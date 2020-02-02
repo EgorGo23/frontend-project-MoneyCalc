@@ -1,14 +1,19 @@
 import React, { Component } from 'react';
 
-import '../../public/css/main.css';
+// import '../../public/styles/main.css';
+import '../../public/styles/scss.scss';
 
 class App extends Component {
   // eslint-disable-next-line class-methods-use-this
   render() {
     return (
-      <div>
+      <div className='container'>
         <h1>My React App!</h1>
         <h2>Egor</h2>
+        <hr />
+        <div>
+          <h2>scss</h2>
+        </div>
       </div>
     );
   }
