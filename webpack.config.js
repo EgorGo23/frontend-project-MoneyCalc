@@ -32,7 +32,13 @@ const cssLoaders = (ext) => {
       hmr: isDev,
       reloadAll: true,
     },
-  }, 'css-loader'];
+  }, 
+  {
+    loader: 'css-loader',
+    options: {
+      modules: true,
+    }
+  }];
 
   if (ext) {
     loaders.push(ext);
