@@ -25,28 +25,6 @@ const optimization = () => {
   return config;
 };
 
-const cssLoaders = (ext) => {
-  const loaders = [{
-    loader: MiniCssExtractPlugin.loader,
-    options: {
-      hmr: isDev,
-      reloadAll: true,
-    },
-  }, 
-  {
-    loader: 'css-loader',
-    options: {
-      modules: true,
-    }
-  }];
-
-  if (ext) {
-    loaders.push(ext);
-  }
-
-  return loaders;
-};
-
 const babelOptions = (preset) => {
   const opts = {
     presets: [
@@ -96,12 +74,18 @@ module.exports = {
         },
       },
       {
-        test: /\.css$/,
-        use: cssLoaders(),
-      },
-      {
-        test: /\.s[ac]ss$/,
-        use: cssLoaders('sass-loader'),
+        test: /\.(sa|sc|c)ss$/,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              hmr: isDev,
+              reloadAll: true,
+            },
+          },
+          {
+            loader: 'css-loader',
+          }, 'postcss-loader', 'sass-loader'],
       },
     ],
   },

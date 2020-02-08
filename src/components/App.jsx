@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
-import { Input } from '@material-ui/core';
+import Navbar from './Navbar.jsx';
 
 class App extends Component {
   render() {
     return (
-      <Input />
+      <>
+        <Navbar />
+        <div className='container pt-4'>
+          <h1>Hello</h1>
+        </div>
+      </>
     );
   }
 }
