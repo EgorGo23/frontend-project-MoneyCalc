@@ -1,5 +1,44 @@
 @import "~bootstrap/scss/bootstrap";
 
+.app {
+    .content {
+        height: 100vh;
 
+        .col-content {
+            background-color: #E0FFAB;
+            min-width: 665px;
 
+            .btn-select {
+                height: 100px;
 
+                .btn-todo {
+                    border: 2px solid black; 
+                }
+                .btn-blq {
+                    border: 2px solid orangered;
+                }
+            }
+            .top-panel {
+                height: 50px;
+        
+                .left {
+                    border: 2px solid green;  
+                }
+                .right {
+                    border: 2px solid red;  
+                }
+            }
+    
+            .main {
+                height: 240px;
+        
+                .left {
+                    border: 2px solid blue;
+                }
+                .right {
+                    border: 2px solid blueviolet;
+                }
+            }
+        }
+    } 
+}
