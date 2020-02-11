@@ -1,44 +1,53 @@
 @import "~bootstrap/scss/bootstrap";
 
-.app {
-    .content {
-        height: 100vh;
 
-        .col-content {
-            background-color: #E0FFAB;
-            min-width: 665px;
+.content {
+    height: 100vh;
 
-            .btn-select {
-                height: 100px;
+    .col-content {
+        background-color: #E0FFAB;
+        min-width: 665px;
 
-                .btn-todo {
-                    border: 2px solid black; 
-                }
-                .btn-blq {
-                    border: 2px solid orangered;
-                }
+        .btn-select {
+            height: 100px;
+
+            .btn-todo {
+                text-align: center;
+                border-right: 2px solid black;
             }
-            .top-panel {
-                height: 50px;
-        
-                .left {
-                    border: 2px solid green;  
-                }
-                .right {
-                    border: 2px solid red;  
-                }
-            }
-    
-            .main {
-                height: 240px;
-        
-                .left {
-                    border: 2px solid blue;
-                }
-                .right {
-                    border: 2px solid blueviolet;
-                }
+            .btn-note {
+                text-align: center;
             }
         }
-    } 
+        .input-panel {
+            height: 60px;
+    
+            .input-fields {
+                border: 2px solid green;  
+            }
+            .btn-start {
+                border: 2px solid red;  
+            }
+        }
+
+        .main-content {
+            height: 240px;
+    
+            .expenditure {
+                border: 2px solid blue;
+            }
+            .categories {
+                border: 2px solid blueviolet;
+            }
+        }
+    }
+};
+
+.input-grid {
+    margin-top: 9px;
+}
+
+.btn-add {
+    margin-top: 9px;
+    margin-left: 30px;
 }
