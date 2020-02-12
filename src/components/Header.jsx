@@ -5,7 +5,7 @@ class Header extends Component {
   render() {
     return (
       <div className="row align-items-center btn-select">
-        <div className="col btn-todo">
+        <div className="col btn-calc">
           <h2>
             <Link
               to="/"

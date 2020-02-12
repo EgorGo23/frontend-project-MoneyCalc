@@ -1,7 +1,8 @@
 import React from 'react';
+import { Switch, Route } from 'react-router-dom';
 import Calc from './MoneyCalc/Calc';
 import Note from './Notebook/Note';
-import { Switch, Route } from 'react-router-dom';
+
 
 const App = () => (
     <div className='container app'>
