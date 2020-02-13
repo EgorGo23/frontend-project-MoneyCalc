@@ -8,62 +8,10 @@ class Expenditure extends Component {
             <li
               className="list-group-item list-item"
             >
-              Cras justo odio
-              <button
-                type="button"
-                className="btn btn-outline-danger btn-sm"
-              >
-                &ndash;
-              </button>
-            </li>
-            <li
-              className="list-group-item list-item"
-            >
-              Cras justo odio
-              <button
-                type="button"
-                className="btn btn-outline-danger btn-sm"
-              >
-                &ndash;
-              </button>
-            </li>
-            <li
-              className="list-group-item list-item"
-            >
-              Cras justo odio
-              <button
-                type="button"
-                className="btn btn-outline-danger btn-sm"
-              >
-                &ndash;
-              </button>
-            </li>
-            <li
-              className="list-group-item list-item"
-            >
-              Cras justo odio
-              <button
-                type="button"
-                className="btn btn-outline-danger btn-sm"
-              >
-                &ndash;
-              </button>
-            </li>
-            <li
-              className="list-group-item list-item"
-            >
-              Cras justo odio
-              <button
-                type="button"
-                className="btn btn-outline-danger btn-sm"
-              >
-                &ndash;
-              </button>
-            </li>
-            <li
-              className="list-group-item list-item"
-            >
-              Cras justo odio
+              <div>
+                <strong>Cras justo odio</strong>
+                <span className="date">24.05.20</span>
+              </div>
               <button
                 type="button"
                 className="btn btn-outline-danger btn-sm"
@@ -72,6 +20,8 @@ class Expenditure extends Component {
               </button>
             </li>
           </ul>
+
+          <button type="button" className="btn btn-outline-danger btn-lg btn-reset">Reset</button>
         </div>
     );
   }

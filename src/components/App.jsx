@@ -5,7 +5,8 @@ import Note from './Notebook/Note';
 
 
 const App = () => (
-    <div className='container app'>
+  <div className='app'>
+    <div className='container'>
       <div className="row align-items-center justify-content-center content">
         <div className="col-7 col-content">
           <Switch>
@@ -15,6 +16,7 @@ const App = () => (
         </div>
       </div>
     </div>
+  </div>
 );
 
 export default App;

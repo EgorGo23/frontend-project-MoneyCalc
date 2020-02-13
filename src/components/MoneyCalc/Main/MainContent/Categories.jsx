@@ -4,70 +4,70 @@ class Categories extends Component {
   render() {
     return (
         <div className="col categories">
-          <h3 className="label">Categories</h3>
-
           <ul className="list-group list-group-flush cat-list">
             <li
-              className="list-group-item category"
+              className="list-group-item list-category"
             >
               <button
-              type="button"
-              className="btn btn-info"
+                type="button"
+                className="btn btn-info btn-category"
               >
                 Food
               </button>
-              <span className="badge badge-pill badge-success">4</span>
+              <strong>4</strong>
             </li>
             <li
-              className="list-group-item category"
+              className="list-group-item list-category"
             >
               <button
-              type="button"
-              className="btn btn-info"
+                type="button"
+                className="btn btn-info btn-category"
               >
                 Payment of an apartment
               </button>
-              <span className="badge badge-pill badge-success">4</span>
+              <strong>4</strong>
             </li>
             <li
-              className="list-group-item category"
+              className="list-group-item list-category"
             >
               <button
-              type="button"
-              className="btn btn-info"
+                type="button"
+                className="btn btn-info btn-category"
               >
                 Prepayment
               </button>
-              <span className="badge badge-light">4</span>
+              <strong>4</strong>
             </li>
             <li
-              className="list-group-item category"
+              className="list-group-item list-category"
             >
               <button
-              type="button"
-              className="btn btn-info"
+                type="button"
+                className="btn btn-info btn-category"
               >
                 Salary
               </button>
-              <span className="badge badge-light">4</span>
+              <strong>4</strong>
             </li>
             <li
-              className="list-group-item category"
+              className="list-group-item list-category"
             >
               <button
-              type="button"
-              className="btn btn-info"
+                type="button"
+                className="btn btn-info btn-category"
               >
                 General expenses
               </button>
-              <span className="badge badge-light">4</span>
+              <strong>4</strong>
+            </li>
+            <li
+              className="list-group-item list-category last-elem"
+            >
+              <h4>Total</h4>
+              <span className="total">40000</span>
             </li>
           </ul>
-
-          <hr />
-
-          
-          </div>
+        </div>
     );
   }
 }

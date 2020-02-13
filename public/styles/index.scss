@@ -1,15 +1,22 @@
 @import "~bootstrap/scss/bootstrap";
 
+$btn-color: #02b9f3;
+
+.app {
+    height: 100vh;
+    width: 100%;
+    background-color: #93e1ed;
+}
 
 .content {
     height: 100vh;
 
     .col-content {
-        background-color: #E0FFAB;
+        background-color: #fff;
         min-width: 900px;
 
         .main-content {
-            height: 500px;
+            height: 415px;
         }
     }
 };
@@ -17,12 +24,16 @@
 // Navbar
 .btn-select {
     height: 70px;
+    .nav-link {
+        color: #005c9d;
+    }
 
     .btn-calc {
         text-align: center;
         padding-top: 4px;
         padding-bottom: 4px;
-        border-right: 2px solid black;
+        
+        
     }
     .btn-note {
         padding-top: 4px;
@@ -34,56 +45,73 @@
 // Inputs
 .input-panel {
     height: 60px;
-
-    .input-fields {
-        border: 2px solid green;  
-
+    
+    .input-fields { 
         .input-grid {
             margin-top: 9px;
         }
     }
     .btn-start-field {
-        border: 2px solid red; 
-
         .btn-add {
             margin-top: 9px;
-            margin-left: 68px;
+            margin-left: 137px;
+            border-radius: 5px;
+            border: 1px solid $btn-color;
+            background-color: $btn-color;
         }
     }
 }
 
 // Left-content
 .expenditure {
-    border: 2px solid blue;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 
     .list-exp {
-        margin-top: 28px;
+        max-height: 280px;
+        overflow: auto;
 
         .list-item {
+            width: 498px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+
+            strong {
+                margin-right: 2rem;
+            }
         }
+    }
+
+    .btn-reset {
+        width: 86px;
+        margin-bottom: 40px;
     }
 }
 
 // Right-content
 .categories {
-    border: 2px solid blueviolet;
-
-    .label {
-        margin-top: 10px;
-        margin-left: 100px;
-    }
-
     .cat-list {
-        margin-top: 10px;
-
-        .category {
+        .list-category {
             display: flex;
             justify-content: space-between;
             align-items: center;
+
+            .btn-category {
+                border-radius: 5px;
+                border: 1px solid #02b9f3;
+                background-color: #02b9f3;
+            }
+        }
+
+        .last-elem {
+            margin-top: 10px;
+        
+            .total{
+                font-size: 1.5rem;
+            }
         }
     }
-    
 }
