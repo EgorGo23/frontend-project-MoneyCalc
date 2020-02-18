@@ -1,13 +1,13 @@
 import React, { Component, Fragment } from 'react';
 import InputPanel from './Main/InputPanel/InputPanel';
-import ExpenditureCategoriesFields from './Main/ExpenditureCategoriesFields/ExpenditureCategoriesFields';
+import ExpenditureAndCategoriesFields from './Main/ExpenditureAndCategoriesFields/ExpenditureAndCategoriesFields';
 
 class Calc extends Component {
   render() {
     return (
       <Fragment>
         <InputPanel />
-        <ExpenditureCategoriesFields />
+        <ExpenditureAndCategoriesFields />
       </Fragment>
     );
   }

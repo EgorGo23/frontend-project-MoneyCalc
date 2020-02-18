@@ -4,7 +4,7 @@ class BtnStart extends Component {
   render() {
     return (
         <div className="col align-self-center input-panel__btn-start-field">
-          <button type="button" className="btn btn-primary btn-start">Add start value</button>
+          <button type="button" className="btn btn-primary input-panel__btn-start-field__btn-start">Add start value</button>
         </div>
     );
   }
