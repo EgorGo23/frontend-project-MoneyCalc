@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import Expenditure from './Expenditure'
 import Categories from './Categories';
 
-class MainContent extends Component {
+class ExpenditureCategoriesFields extends Component {
   render() {
     return (
-      <div className="row main-content">
+      <div className="row expenditure-categories-fields">
           <Expenditure />
           <Categories />
       </div>
@@ -13,4 +13,4 @@ class MainContent extends Component {
   }
 }
 
-export default MainContent;
+export default ExpenditureCategoriesFields;

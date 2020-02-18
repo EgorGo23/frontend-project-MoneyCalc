@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class InputFiels extends Component {
   render() {
     return (
-        <div className="col-8 input-fields">
+        <div className="col-8 align-self-center input-panel__fields">
           <form className="input-grid">
             <div className="row">
               <div className="col">

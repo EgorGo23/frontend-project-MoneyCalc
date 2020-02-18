@@ -5,7 +5,6 @@ class MainNote extends Component {
   render() {
     return (
       <Fragment>
-        <Header />
         <h1>Hello</h1>
       </Fragment>
     );

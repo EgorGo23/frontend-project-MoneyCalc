@@ -1,18 +1,16 @@
 import React, { Component, Fragment } from 'react';
 import InputPanel from './Main/InputPanel/InputPanel';
-import MainContent from './Main/MainContent/MainContent';
-import Header from '../Header';
+import ExpenditureCategoriesFields from './Main/ExpenditureCategoriesFields/ExpenditureCategoriesFields';
 
-class MainCalc extends Component {
+class Calc extends Component {
   render() {
     return (
       <Fragment>
-        <Header />
         <InputPanel />
-        <MainContent />
+        <ExpenditureCategoriesFields />
       </Fragment>
     );
   }
 }
 
-export default MainCalc;
+export default Calc;
