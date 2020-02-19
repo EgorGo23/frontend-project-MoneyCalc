@@ -2,10 +2,17 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import '../public/styles/index.scss';
 import { BrowserRouter } from 'react-router-dom';
-import App from './components/App.jsx';
+import App from './components/App';
+import calcReducer from './reducers/calcReducer';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+
+const store = createStore(calcReducer);
 
 ReactDOM.render((
-    <BrowserRouter>
-        <App />
-    </BrowserRouter>
+    <Provider store={store}>
+        <BrowserRouter>
+            <App />
+        </BrowserRouter>
+    </Provider>
 ), document.getElementById('root'));

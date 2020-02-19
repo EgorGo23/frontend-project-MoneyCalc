@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 
-class InputFiels extends Component {
+class FormPanel extends Component {
   render() {
     return (
-        <div className="col-8 align-self-center input-panel__fields">
-          <form className="input-grid">
+      <div className="row form-panel">
+        <div className="col-8 align-self-center form-panel__fields">
+          <form>
             <div className="row">
               <div className="col">
                 <input type="text" className="form-control" placeholder="Date" />
@@ -12,11 +13,15 @@ class InputFiels extends Component {
               <div className="col">
                 <input type="text" className="form-control" placeholder="Money" />
               </div>
+              <div className="col align-self-center form-panel__fields__btn-add-field">
+                <button type="button" className="btn btn-primary form-panel__fields__btn-add-field__btn-add">Add start value</button>
+              </div>
             </div>
           </form>
         </div>
+      </div>
     );
   }
 }
 
-export default InputFiels;
+export default FormPanel;

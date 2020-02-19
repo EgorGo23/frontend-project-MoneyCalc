@@ -1,4 +1,13 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+const mapStateToProps = (state) => {
+  const props = {
+    money: state.money,
+  }
+
+  return props;
+}
 
 class Categories extends Component {
   render() {
@@ -72,4 +81,4 @@ class Categories extends Component {
   }
 }
 
-export default Categories;
+export default connect(mapStateToProps)(Categories);

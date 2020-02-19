@@ -1,7 +1,21 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+const mapStateToProps = (state) => {
+  const props = {
+    date: state.date,
+    money: state.money,
+    category: state.category,
+  }
+
+  return props;
+}
+
 
 class Expenditure extends Component {
   render() {
+    const { date, money, category } = this.props;
+
     return (
         <div className="col-7 expenditure-field">
           <ul className="list-group list-group-flush expenditure-field__list">
@@ -9,8 +23,9 @@ class Expenditure extends Component {
               className="list-group-item expenditure-field__list__list-item"
             >
               <div>
-                <strong className='expenditure-field__list__list-item__category-name'>Cras justo odio</strong>
-                <span className="expenditure-field__list__list-item__date">24.05.20</span>
+                <strong className='expenditure-field__list__list-item__category-name'>{category}</strong>
+                <span className="expenditure-field__list__list-item__date">{date}</span>
+                <strong className="expenditure-field__list__list-item__money">{money}</strong>
               </div>
               <button
                 type="button"
@@ -27,4 +42,4 @@ class Expenditure extends Component {
   }
 }
 
-export default Expenditure;
+export default connect(mapStateToProps)(Expenditure);
