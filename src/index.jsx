@@ -2,12 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import '../public/styles/index.scss';
 import { BrowserRouter } from 'react-router-dom';
-import App from './components/App';
-import calcReducer from './reducers/calcReducer';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
+import App from './components/App';
+import rootReducer from './reducers/calcReducer';
 
-const store = createStore(calcReducer);
+const store = createStore(rootReducer);
 
 ReactDOM.render((
     <Provider store={store}>

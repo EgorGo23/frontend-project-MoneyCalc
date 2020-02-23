@@ -45,11 +45,11 @@ $br-radius: 8px;
 
 
 // Inputs
-.input-panel {
+.form-panel {
     height: 60px;
 
-    .input-panel__btn-start-field {
-        .input-panel__btn-start-field__btn-start {  
+    .form-panel__fields__btn-add-field {
+        .form-panel__fields__btn-add-field__btn-add {  
             margin-left: 137px;
             border-radius: $br-radius;
             border: 1px solid $btn-color;
@@ -58,34 +58,22 @@ $br-radius: 8px;
     }
 }
 
-// Left-content
-.expenditure-field {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-
-    .expenditure-field__list {
+// Panel of Expenses and Income 
+.expensesIncomeList-field {
+    .expensesIncomeList-field__list {
         max-height: 280px;
         overflow: auto;
 
-        .expenditure-field__list__list-item {
+        .expensesIncomeList-field__list__list-item {
             width: 498px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-
-            .expenditure-field__list__list-item__category-name {
-                margin-right: 11rem;
-            }
-            .expenditure-field__list__list-item__date {
-                margin-right: 6rem;
-            }
         }
     }
 }
 
-// Right-content
+// Panel of Categories
 .categories-field {
     .categories-field__list {
         .categories-field__list__list-item {

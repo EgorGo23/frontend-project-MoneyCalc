@@ -1,13 +1,17 @@
 import React, { Component, Fragment } from 'react';
-import ExpenditureAndCategoriesFields from './Main/ExpenditureAndCategoriesFields/ExpenditureAndCategoriesFields';
-import FormPanel from './Main/InputPanel';
+import FormPanel from './Main/FormPanel';
+import ExpensesIncomeList from './Main/ExpensesIncomeList';
+import Categories from './Main/Categories';
 
 class Calc extends Component {
   render() {
     return (
       <Fragment>
         <FormPanel />
-        <ExpenditureAndCategoriesFields />
+        <div className="row expensesIncomeList-categories-fields">
+          <ExpensesIncomeList />
+          <Categories />
+        </div>
       </Fragment>
     );
   }

@@ -1,13 +1,22 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import * as actions from '../../../actions/calcActions';
 
 const mapStateToProps = (state) => {
   const props = {
-    money: state.money,
-  }
+    currentInputValues: state.currentInputData_Calc,
+    list: state.expensesIncomeList_Calc,
+  };
 
   return props;
-}
+};
+
+const actionCreators = {
+  setDateText: actions.setDateText,
+  setMoneyText: actions.setMoneyText,
+  addItem: actions.addItem,
+  clearInputText: actions.clearInputText,
+};
 
 class Categories extends Component {
   render() {
@@ -81,4 +90,4 @@ class Categories extends Component {
   }
 }
 
-export default connect(mapStateToProps)(Categories);
+export default connect(mapStateToProps, actionCreators)(Categories);
