@@ -4,7 +4,8 @@ import {
   CALC_CHANGE_MONEY_TEXT,
   CALC_CLEAR_INPUT_FIELDS,
   CALC_ADD_ITEM,
-  CALC_DELETE_ITEM,
+  CALC_REMOVE_ITEM,
+  CALC_CLEAR_LIST,
 } from '../actions/calcActions';
 
 const defaultStateCurrentInput = {
@@ -56,10 +57,13 @@ const expensesIncomeListReducer = (state = defaultStateList, action) => {
       ];
     }
 
-    case CALC_DELETE_ITEM: {
+    case CALC_REMOVE_ITEM: {
       const { id } = action.payload;
-      console.log(id);
-      return state.filter((element) => element.id === id);
+      return state.filter(element => element.id !== id);
+    }
+
+    case CALC_CLEAR_LIST: {
+      return defaultStateList;
     }
 
     default: {

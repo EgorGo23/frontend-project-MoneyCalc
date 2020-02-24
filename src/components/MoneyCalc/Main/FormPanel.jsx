@@ -19,12 +19,12 @@ const actionCreators = {
 };
 
 class FormPanel extends Component {
-  handleChangeDate = ({ target }) => {
+  handleChangeDateText = ({ target }) => {
     const { setDateText } = this.props;
     setDateText(target.value);
   }
 
-  handleChangeMoney = ({ target }) => {
+  handleChangeMoneyText = ({ target }) => {
     const { setMoneyText } = this.props;
     setMoneyText(target.value);
   }
@@ -33,7 +33,10 @@ class FormPanel extends Component {
     const { addItem, currentInputValues, clearInputText } = this.props;
     addItem({
       id: _.uniqueId(),
-      category: 'start-value',
+      category: {
+        categoryName: 'start-value', 
+        categorySign: '',
+      },
       date: currentInputValues.currentDate,
       money: currentInputValues.currentMoney,
     });
@@ -49,10 +52,10 @@ class FormPanel extends Component {
           <form>
             <div className="row">
               <div className="col">
-                <input type="text" className="form-control" placeholder="Date" value={currentDate} onChange={this.handleChangeDate} />
+                <input type="text" className="form-control" placeholder="Date" value={currentDate} onChange={this.handleChangeDateText} />
               </div>
               <div className="col">
-                <input type="text" className="form-control" placeholder="Money" value={currentMoney} onChange={this.handleChangeMoney} />
+                <input type="text" className="form-control" placeholder="Money" value={currentMoney} onChange={this.handleChangeMoneyText} />
               </div>
               <div className="col form-panel__fields__btn-add-field">
                 {(list.length) ? (

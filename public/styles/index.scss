@@ -3,6 +3,13 @@
 $btn-color: #02b9f3;
 $br-radius: 8px;
 
+%flex-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
 .app {
     background-color: #93e1ed;
 }
@@ -60,16 +67,39 @@ $br-radius: 8px;
 
 // Panel of Expenses and Income 
 .expensesIncomeList-field {
+    @extend %flex-container;
+    flex-direction: column;
+
     .expensesIncomeList-field__list {
         max-height: 280px;
         overflow: auto;
 
         .expensesIncomeList-field__list__list-item {
             width: 498px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            @extend %flex-container;
+
+            .expensesIncomeList-field__list__list-item__content-field {
+                width: 90%;
+                @extend %flex-container;
+                .expensesIncomeList-field__list__list-item__content-field__category-name {
+                    width: 44%;
+                }
+                .expensesIncomeList-field__list__list-item__content-field__date {
+                   
+                }
+                .expensesIncomeList-field__list__list-item__content-field__money {
+                    width: 15%;
+                }
+            }
         }
+    }
+
+    .btn-reset {
+        border: 1px solid $btn-color;
+        color: $btn-color;
+    }
+    .btn-reset:hover {
+        box-shadow: 0 0 0 4px #dc3545;
     }
 }
 
@@ -77,20 +107,17 @@ $br-radius: 8px;
 .categories-field {
     .categories-field__list {
         .categories-field__list__list-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            @extend %flex-container;
 
             .categories-field__list__list-btn {
                 border-radius: $br-radius;
                 border: 1px solid $btn-color;
-                background-color: $btn-color;
+                //background-color: $btn-color;
             }
         }
 
         .categories-field__list__list-item-last {
-            display: flex;
-            justify-content: space-between;
+            @extend %flex-container;
             align-items: baseline;
         
             .categories-field__list__list-item-last__total-value {
