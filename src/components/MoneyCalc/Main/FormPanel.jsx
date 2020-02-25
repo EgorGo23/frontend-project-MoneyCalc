@@ -34,7 +34,7 @@ class FormPanel extends Component {
     addItem({
       id: _.uniqueId(),
       category: {
-        categoryName: 'start-value', 
+        categoryName: 'Start value',
         categorySign: '',
       },
       date: currentInputValues.currentDate,
@@ -44,25 +44,29 @@ class FormPanel extends Component {
   }
 
   render() {
-    const { currentDate, currentMoney } = this.props.currentInputValues;
-    const { list } = this.props;
+    const { list, currentInputValues } = this.props;
+
+    const renderStartButton = () => (
+      (list.length || !(currentInputValues.currentDate && currentInputValues.currentMoney)) ? (
+        <button type="button" onClick={this.handleAddItem} className="btn btn-primary form-panel__fields__btn-add-field__btn-add" disabled>Add start value</button>
+      ) : (
+        <button type="button" onClick={this.handleAddItem} className="btn btn-primary form-panel__fields__btn-add-field__btn-add">Add start value</button>
+      )
+    );
+
     return (
       <div className="row form-panel">
         <div className="col align-self-center form-panel__fields">
           <form>
             <div className="row">
               <div className="col">
-                <input type="text" className="form-control" placeholder="Date" value={currentDate} onChange={this.handleChangeDateText} />
+                <input type="text" className="form-control" placeholder="Date" value={currentInputValues.currentDate} onChange={this.handleChangeDateText} />
               </div>
               <div className="col">
-                <input type="text" className="form-control" placeholder="Money" value={currentMoney} onChange={this.handleChangeMoneyText} />
+                <input type="text" className="form-control" placeholder="Money" value={currentInputValues.currentMoney} onChange={this.handleChangeMoneyText} />
               </div>
               <div className="col form-panel__fields__btn-add-field">
-                {(list.length) ? (
-                  <button type="button" onClick={this.handleAddItem} className="btn btn-primary form-panel__fields__btn-add-field__btn-add" disabled>Add start value</button>
-                ) : (
-                  <button type="button" onClick={this.handleAddItem} className="btn btn-primary form-panel__fields__btn-add-field__btn-add">Add start value</button>
-                )}
+                {renderStartButton()}
               </div>
             </div>
           </form>

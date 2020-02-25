@@ -1,5 +1,6 @@
 @import "~bootstrap/scss/bootstrap";
 
+//Сommon styles
 $btn-color: #02b9f3;
 $br-radius: 8px;
 
@@ -9,18 +10,28 @@ $br-radius: 8px;
     align-items: center;
 }
 
-
-.app {
-    background-color: #93e1ed;
+.danger {
+    color: #dc3545;
 }
 
-.main-row {
-    height: 100vh;
+.success {
+    color: #28a745;
+}
 
-    .main {
-        background-color: #fff;
-        min-width: 900px;
-        border-radius: $br-radius;
+//Item styles
+
+//App
+.app {
+    background-color: #93e1ed;
+
+    .main-row {
+        height: 100vh;
+    
+        .main {
+            background-color: #fff;
+            min-width: 900px;
+            border-radius: $br-radius;
+        }
     }
 }
 
@@ -49,7 +60,6 @@ $br-radius: 8px;
         }
     }
 }
-
 
 // Inputs
 .form-panel {
@@ -81,6 +91,7 @@ $br-radius: 8px;
             .expensesIncomeList-field__list__list-item__content-field {
                 width: 90%;
                 @extend %flex-container;
+
                 .expensesIncomeList-field__list__list-item__content-field__category-name {
                     width: 44%;
                 }
@@ -108,17 +119,12 @@ $br-radius: 8px;
     .categories-field__list {
         .categories-field__list__list-item {
             @extend %flex-container;
-
-            .categories-field__list__list-btn {
-                border-radius: $br-radius;
-                border: 1px solid $btn-color;
-                //background-color: $btn-color;
-            }
         }
 
         .categories-field__list__list-item-last {
             @extend %flex-container;
             align-items: baseline;
+            color: #02b9f3;
         
             .categories-field__list__list-item-last__total-value {
                 font-size: 1.5rem;
@@ -126,3 +132,4 @@ $br-radius: 8px;
         }
     }
 }
+

@@ -15,21 +15,19 @@ const defaultStateCurrentInput = {
 
 const defaultStateList = [];
 
-const currentInputDataReducer = (state = defaultStateCurrentInput, action) => {
-  switch (action.type) {
+const currentInputDataReducer = (state = defaultStateCurrentInput, { type, payload }) => {
+  switch (type) {
     case CALC_CHANGE_DATE_TEXT: {
-      const { date } = action.payload;
       return {
         ...state,
-        currentDate: date,
+        currentDate: payload.date,
       };
     }
 
     case CALC_CHANGE_MONEY_TEXT: {
-      const { money } = action.payload;
       return {
         ...state,
-        currentMoney: money,
+        currentMoney: payload.money,
       };
     }
 
@@ -47,19 +45,17 @@ const currentInputDataReducer = (state = defaultStateCurrentInput, action) => {
   }
 };
 
-const expensesIncomeListReducer = (state = defaultStateList, action) => {
-  switch (action.type) {
+const expensesIncomeListReducer = (state = defaultStateList, { type, payload }) => {
+  switch (type) {
     case CALC_ADD_ITEM: {
-      const { item } = action.payload;
       return [
         ...state,
-        item,
+        payload.item,
       ];
     }
 
     case CALC_REMOVE_ITEM: {
-      const { id } = action.payload;
-      return state.filter(element => element.id !== id);
+      return state.filter((element) => element.id !== payload.id);
     }
 
     case CALC_CLEAR_LIST: {
