@@ -49,8 +49,8 @@ const expensesIncomeListReducer = (state = defaultStateList, { type, payload }) 
   switch (type) {
     case CALC_ADD_ITEM: {
       return [
-        ...state,
         payload.item,
+        ...state,
       ];
     }
 

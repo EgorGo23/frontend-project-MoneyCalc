@@ -1,6 +1,8 @@
 @import "~bootstrap/scss/bootstrap";
 
-//Сommon styles
+/**********************/
+/****Сommon styles****/ 
+/********************/
 $btn-color: #02b9f3;
 $br-radius: 8px;
 
@@ -18,9 +20,37 @@ $br-radius: 8px;
     color: #28a745;
 }
 
-//Item styles
 
-//App
+
+/******************/
+/****Scrollbar****/ 
+/****************/
+::-webkit-scrollbar{
+    width:12px;
+}
+
+::-webkit-scrollbar-thumb{
+    border-radius: 5px;
+    background-color: #aaa;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background-color: #777;
+}
+
+::-webkit-scrollbar-track{
+    border-radius: 5px;
+    background-color: #eee;
+}
+
+
+
+/****Item styles****/ 
+
+
+/************/
+/****App****/ 
+/**********/
 .app {
     background-color: #93e1ed;
 
@@ -35,7 +65,10 @@ $br-radius: 8px;
     }
 }
 
-// Navbar
+
+/***************/
+/****Navbar****/ 
+/*************/
 .navbar {
     .navbar__btn-panel {
         max-width: 900px;
@@ -61,31 +94,39 @@ $br-radius: 8px;
     }
 }
 
-// Inputs
+
+/***************/
+/****Inputs****/ 
+/*************/
 .form-panel {
     height: 60px;
 
     .form-panel__fields__btn-add-field {
         .form-panel__fields__btn-add-field__btn-add {  
+            
             margin-left: 137px;
             border-radius: $br-radius;
             border: 1px solid $btn-color;
-            background-color: $btn-color;
+            //background-color: $btn-color;
         }
     }
 }
 
-// Panel of Expenses and Income 
+
+/*************************************/
+/****Panel of Expenses and Income****/ 
+/***********************************/  
 .expensesIncomeList-field {
     @extend %flex-container;
     flex-direction: column;
 
     .expensesIncomeList-field__list {
+        width: 498px;
         max-height: 280px;
         overflow: auto;
 
         .expensesIncomeList-field__list__list-item {
-            width: 498px;
+            width: 480px;
             @extend %flex-container;
 
             .expensesIncomeList-field__list__list-item__content-field {
@@ -114,7 +155,10 @@ $br-radius: 8px;
     }
 }
 
-// Panel of Categories
+
+/****************************/
+/****Panel of Categories****/ 
+/**************************/
 .categories-field {
     .categories-field__list {
         .categories-field__list__list-item {
