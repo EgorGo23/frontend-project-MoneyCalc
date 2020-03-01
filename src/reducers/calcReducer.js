@@ -16,7 +16,7 @@ const defaultStateCurrentInput = {
 
 const defaultStateList = [];
 
-const currentInputDataReducer = (state = defaultStateCurrentInput, { type, payload }) => {
+export const currentInputDataReducer = (state = defaultStateCurrentInput, { type, payload }) => {
   switch (type) {
     case CALC_CHANGE_DATE_TEXT: {
       return {
@@ -46,7 +46,7 @@ const currentInputDataReducer = (state = defaultStateCurrentInput, { type, paylo
   }
 };
 
-const expensesIncomeListReducer = (state = defaultStateList, { type, payload }) => {
+export const expensesIncomeListReducer = (state = defaultStateList, { type, payload }) => {
   switch (type) {
     case CALC_ADD_ITEM: {
       return [

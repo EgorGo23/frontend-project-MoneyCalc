@@ -50,7 +50,7 @@ module.exports = {
     filename: 'index_bundle.js',
   },
   resolve: {
-    extensions : ['.js', '.jsx', 'scss'],
+    extensions: ['.js', '.jsx', 'scss'],
   },
   optimization: optimization(),
   devServer: {

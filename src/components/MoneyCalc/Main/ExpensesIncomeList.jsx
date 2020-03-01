@@ -19,7 +19,7 @@ const actionCreators = {
   clearInputText: actions.clearInputText,
 };
 
-class ExpensesIncomeList extends Component {
+export class ExpensesIncomeList extends Component {
   handleRemoveItem = (id) => {
     const { removeItem } = this.props;
     removeItem(id);

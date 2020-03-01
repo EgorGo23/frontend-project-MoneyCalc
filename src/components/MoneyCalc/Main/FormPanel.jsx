@@ -18,7 +18,7 @@ const actionCreators = {
   clearInputText: actions.clearInputText,
 };
 
-class FormPanel extends Component {
+export class FormPanel extends Component {
   handleChangeDateText = ({ target }) => {
     const { setDateText } = this.props;
     setDateText(target.value);

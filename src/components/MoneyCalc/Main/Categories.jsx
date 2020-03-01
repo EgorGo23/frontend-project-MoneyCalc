@@ -25,7 +25,7 @@ const actionCreators = {
   clearInputText: actions.clearInputText,
 };
 
-class Categories extends Component {
+export class Categories extends Component {
 
   handleAddItem = (categoryName) => {
     const {
