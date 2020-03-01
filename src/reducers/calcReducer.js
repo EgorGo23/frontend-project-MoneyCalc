@@ -8,6 +8,7 @@ import {
   CALC_CLEAR_LIST,
 } from '../actions/calcActions';
 
+
 const defaultStateCurrentInput = {
   currentDate: '',
   currentMoney: '',

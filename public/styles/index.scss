@@ -1,9 +1,16 @@
 @import "~bootstrap/scss/bootstrap";
 
-/**********************/
-/****Сommon styles****/ 
-/********************/
-$btn-color: #02b9f3;
+/*************************/
+/****General settings****/ 
+/***********************/
+
+$blue: #02b9f3;
+$light-blue: #93e1ed;
+$dark-blue: #005c9d;
+$blue-class-disabled: #0183ac;
+$danger: #dc3545;
+$success: #28a745;
+
 $br-radius: 8px;
 
 %flex-container {
@@ -13,14 +20,100 @@ $br-radius: 8px;
 }
 
 .danger {
-    color: #dc3545;
+    color: $danger;
 }
 
 .success {
-    color: #28a745;
+    color: $success;
+}
+
+/****Item styles****/ 
+
+
+/************/
+/****App****/ 
+/**********/
+
+.app {
+    background-color: $light-blue;
+
+    .main-row {
+        height: 100vh;
+        
+        .main {
+            background-color: #fff;
+            min-width: 900px;
+            border-radius: $br-radius;
+        }
+    }
 }
 
 
+/***************/
+/****Navbar****/ 
+/*************/
+.navbar {
+    .navbar__btn-panel {
+        max-width: 900px;
+
+        .navbar__btn-panel__nav-link {
+            text-decoration: none;
+            color: $dark-blue;
+            width: 400px;
+            background-color: #fff;
+            border-radius: $br-radius;
+            text-align: center;
+        }
+
+        .navbar__btn-panel__nav-link:hover {
+            background-color: $dark-blue;
+            transition: all 0.2s linear;
+            
+            .navbar__btn-panel__nav-link__btn-name {
+                color: #fff;
+                transition: all 0.2s linear;
+            }
+        }
+    }
+}
+
+
+/***************/
+/****Inputs****/ 
+/*************/
+%btn-add {
+    margin-left: 137px;
+    border: 1px solid $blue;
+    background-color: $blue;
+}
+
+
+.form-panel {
+    height: 80px;
+
+    .form-panel__fields__btn-add-field {
+        
+        .form-panel__fields__btn-add-field__btn-add {  
+            @extend %btn-add;
+        }
+
+        .form-panel__fields__btn-add-field__btn-add_disabled {  
+            @extend %btn-add;
+        }
+
+        .form-panel__fields__btn-add-field__btn-add:hover {  
+            border: 1px solid $blue-class-disabled;
+            background-color: $blue-class-disabled;
+        }
+    }
+
+    
+}
+
+
+/*************************************/
+/****Panel of Expenses and Income****/ 
+/***********************************/  
 
 /******************/
 /****Scrollbar****/ 
@@ -43,79 +136,6 @@ $br-radius: 8px;
     background-color: #eee;
 }
 
-
-
-/****Item styles****/ 
-
-
-/************/
-/****App****/ 
-/**********/
-.app {
-    background-color: #93e1ed;
-
-    .main-row {
-        height: 100vh;
-    
-        .main {
-            background-color: #fff;
-            min-width: 900px;
-            border-radius: $br-radius;
-        }
-    }
-}
-
-
-/***************/
-/****Navbar****/ 
-/*************/
-.navbar {
-    .navbar__btn-panel {
-        max-width: 900px;
-
-        .navbar__btn-panel__nav-link {
-            text-decoration: none;
-            color: #005c9d;
-            width: 400px;
-            background-color: #fff;
-            border-radius: $br-radius;
-            text-align: center;
-        }
-
-        .navbar__btn-panel__nav-link:hover {
-            background-color: #005c9d;
-            transition: all 0.2s linear;
-            
-            .navbar__btn-panel__nav-link__btn-name {
-                color: #fff;
-                transition: all 0.2s linear;
-            }
-        }
-    }
-}
-
-
-/***************/
-/****Inputs****/ 
-/*************/
-.form-panel {
-    height: 60px;
-
-    .form-panel__fields__btn-add-field {
-        .form-panel__fields__btn-add-field__btn-add {  
-            
-            margin-left: 137px;
-            border-radius: $br-radius;
-            border: 1px solid $btn-color;
-            //background-color: $btn-color;
-        }
-    }
-}
-
-
-/*************************************/
-/****Panel of Expenses and Income****/ 
-/***********************************/  
 .expensesIncomeList-field {
     @extend %flex-container;
     flex-direction: column;
@@ -134,10 +154,7 @@ $br-radius: 8px;
                 @extend %flex-container;
 
                 .expensesIncomeList-field__list__list-item__content-field__category-name {
-                    width: 44%;
-                }
-                .expensesIncomeList-field__list__list-item__content-field__date {
-                   
+                    width: 45%;
                 }
                 .expensesIncomeList-field__list__list-item__content-field__money {
                     width: 15%;
@@ -145,13 +162,18 @@ $br-radius: 8px;
             }
         }
     }
-
-    .btn-reset {
-        border: 1px solid $btn-color;
-        color: $btn-color;
+    .expensesIncomeList-field__btn-reset {
+        border: 1px solid $blue;
+        color: $blue;
     }
-    .btn-reset:hover {
-        box-shadow: 0 0 0 4px #dc3545;
+
+    .expensesIncomeList-field__btn-reset:hover {
+        background-color: $blue;
+        color: #fff;
+    }
+
+    .expensesIncomeList-field__btn-reset:focus {
+        box-shadow: none;
     }
 }
 
@@ -168,7 +190,7 @@ $br-radius: 8px;
         .categories-field__list__list-item-last {
             @extend %flex-container;
             align-items: baseline;
-            color: #02b9f3;
+            color: $blue;
         
             .categories-field__list__list-item-last__total-value {
                 font-size: 1.5rem;

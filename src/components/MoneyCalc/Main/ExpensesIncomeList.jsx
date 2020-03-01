@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import cn from 'classnames';
+import _ from 'lodash';
 import * as actions from '../../../actions/calcActions';
 
 const mapStateToProps = (state) => {
@@ -38,9 +39,10 @@ class ExpensesIncomeList extends Component {
           {list.map(({
             id, category, date, money,
           }) => (
+
             <li
               className="list-group-item expensesIncomeList-field__list__list-item pl-0 pr-1"
-              key={id}
+              key={_.uniqueId()}
             >
               <div
                 className={cn({
@@ -56,7 +58,11 @@ class ExpensesIncomeList extends Component {
               </div>
               <button
                 type="button"
-                className="btn btn-outline-danger btn-sm"
+                className={cn({
+                  btn: true,
+                  'btn-sm': true,
+                  [`${(category.categorySign === '+' || category.categoryName === 'Start value') ? 'btn-outline-success' : 'btn-outline-danger'}`]: true,
+                })}
                 onClick={() => this.handleRemoveItem(id)}
               >
                 &ndash;
@@ -66,7 +72,7 @@ class ExpensesIncomeList extends Component {
         </ul>
         <button
           type="button"
-          className="btn btn-outline-primary mb-4 btn-lg btn-reset"
+          className="btn btn-outline-primary mb-4 btn-lg expensesIncomeList-field__btn-reset"
           onClick={this.handleClearList}
         >
           Reset

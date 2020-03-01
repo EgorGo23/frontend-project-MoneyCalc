@@ -38,7 +38,7 @@ class FormPanel extends Component {
         categorySign: '',
       },
       date: currentInputValues.currentDate,
-      money: currentInputValues.currentMoney,
+      money: +currentInputValues.currentMoney,
     });
     clearInputText();
   }
@@ -48,7 +48,7 @@ class FormPanel extends Component {
 
     const renderStartButton = () => (
       (list.length || !(currentInputValues.currentDate && currentInputValues.currentMoney)) ? (
-        <button type="button" onClick={this.handleAddItem} className="btn btn-primary form-panel__fields__btn-add-field__btn-add" disabled>Add start value</button>
+        <button type="button" onClick={this.handleAddItem} className="btn btn-primary form-panel__fields__btn-add-field__btn-add_disabled" disabled>Add start value</button>
       ) : (
         <button type="button" onClick={this.handleAddItem} className="btn btn-primary form-panel__fields__btn-add-field__btn-add">Add start value</button>
       )
@@ -61,9 +61,11 @@ class FormPanel extends Component {
             <div className="row">
               <div className="col">
                 <input type="text" className="form-control" placeholder="Date" value={currentInputValues.currentDate} onChange={this.handleChangeDateText} />
+                <small id="dateHelp" className="form-text text-muted">Enter the date in the format &apos;xx.xx.xx&apos;</small>
               </div>
               <div className="col">
                 <input type="text" className="form-control" placeholder="Money" value={currentInputValues.currentMoney} onChange={this.handleChangeMoneyText} />
+                <small id="moneyHelp" className="form-text text-muted">Enter a numerical value</small>
               </div>
               <div className="col form-panel__fields__btn-add-field">
                 {renderStartButton()}

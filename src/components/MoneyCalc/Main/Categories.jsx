@@ -7,9 +7,9 @@ import * as actions from '../../../actions/calcActions';
 const categoryList = {
   Food: '-',
   'Payment of an apartment': '-',
+  'General expenses': '-',
   Prepayment: '+',
   Salary: '+',
-  'General expenses': '-',
 };
 
 const mapStateToProps = (state) => {
@@ -26,8 +26,11 @@ const actionCreators = {
 };
 
 class Categories extends Component {
+
   handleAddItem = (categoryName) => {
-    const { addItem, currentInputValues, clearInputText } = this.props;
+    const {
+      addItem, currentInputValues, clearInputText,
+    } = this.props;
     addItem({
       id: _.uniqueId(),
       category: {
@@ -35,7 +38,7 @@ class Categories extends Component {
         categorySign: categoryList[categoryName],
       },
       date: currentInputValues.currentDate,
-      money: currentInputValues.currentMoney,
+      money: +currentInputValues.currentMoney,
     });
     clearInputText();
   }
@@ -82,7 +85,7 @@ class Categories extends Component {
               {renderCategoryButton(element)}
               <strong className={cn({ [`${(categoryList[element]) === '+' ? 'success' : 'danger'}`]: true })}>
                 {list.filter(({ category }) => category.categoryName === element)
-                  .reduce((acc, item) => ((categoryList[element] === '-') ? acc - +item.money : acc + +item.money), 0) || 0}
+                  .reduce((acc, { money }) => ((categoryList[element] === '-') ? acc - money : acc + money), 0) || 0}
               </strong>
             </li>))}
           <li
@@ -91,13 +94,10 @@ class Categories extends Component {
             <h4>Total</h4>
             <strong className="categories-field__list__list-item-last__total-value">
               { list.reduce((acc, { category, money }) => {
-                if (category.categoryName === 'Start value') {
-                  return +money;
+                if (category.categoryName === 'Start value' || category.categorySign === '+') {
+                  return acc + money;
                 }
-                if (category.categorySign === '+') {
-                  return acc + +money;
-                }
-                return acc - +money;
+                return acc - money;
               }, 0) || 0 }
             </strong>
           </li>
