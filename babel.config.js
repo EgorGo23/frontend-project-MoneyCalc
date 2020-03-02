@@ -5,6 +5,7 @@ module.exports = {
         node: 'current',
       },
       useBuiltIns: 'entry',
+      "corejs": "3.0.0",
     }],
     "@babel/react"
   ],

@@ -33,11 +33,7 @@ export const currentInputDataReducer = (state = defaultStateCurrentInput, { type
     }
 
     case CALC_CLEAR_INPUT_FIELDS: {
-      return {
-        ...state,
-        currentDate: '',
-        currentMoney: '',
-      };
+      return defaultStateCurrentInput;
     }
 
     default: {

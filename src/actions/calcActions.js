@@ -47,5 +47,5 @@ export const setCategory = (category) => ({
   type: CALC_SET_CATEGORY,
   payload: {
     category,
-  }
-})
+  },
+});
