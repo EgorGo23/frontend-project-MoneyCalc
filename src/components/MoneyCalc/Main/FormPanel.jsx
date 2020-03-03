@@ -12,21 +12,21 @@ const mapStateToProps = (state) => {
 };
 
 const actionCreators = {
-  setDateText: actions.setDateText,
-  setMoneyText: actions.setMoneyText,
+  changeDateText: actions.changeDateText,
+  changeMoneyText: actions.changeMoneyText,
   addItem: actions.addItem,
   clearInputText: actions.clearInputText,
 };
 
 export class FormPanel extends Component {
   handleChangeDateText = ({ target }) => {
-    const { setDateText } = this.props;
-    setDateText(target.value);
+    const { changeDateText } = this.props;
+    changeDateText(target.value);
   }
 
   handleChangeMoneyText = ({ target }) => {
-    const { setMoneyText } = this.props;
-    setMoneyText(target.value);
+    const { changeMoneyText } = this.props;
+    changeMoneyText(target.value);
   }
 
   handleAddItem = () => {

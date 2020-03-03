@@ -6,7 +6,7 @@ import {
   CALC_ADD_ITEM,
   CALC_REMOVE_ITEM,
   CALC_CLEAR_LIST,
-} from '../actions/calcActions';
+} from '../../actions/calcActions';
 
 
 const defaultStateCurrentInput = {

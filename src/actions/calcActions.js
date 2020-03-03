@@ -7,14 +7,14 @@ export const CALC_CLEAR_LIST = 'CALC_CLEAR_LIST';
 export const CALC_SET_CATEGORY = 'CALC_SET_CATEGORY';
 
 
-export const setDateText = (date) => ({
+export const changeDateText = (date) => ({
   type: CALC_CHANGE_DATE_TEXT,
   payload: {
     date,
   },
 });
 
-export const setMoneyText = (money) => ({
+export const changeMoneyText = (money) => ({
   type: CALC_CHANGE_MONEY_TEXT,
   payload: {
     money,

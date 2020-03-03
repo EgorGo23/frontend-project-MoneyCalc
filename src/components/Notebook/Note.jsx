@@ -1,12 +1,10 @@
 import React, { Component, Fragment } from 'react';
-import Header from '../Header';
+import { Form } from './Main/Form';
 
 class MainNote extends Component {
   render() {
     return (
-      <Fragment>
-        <h1>Hello</h1>
-      </Fragment>
+      <Form />
     );
   }
 }

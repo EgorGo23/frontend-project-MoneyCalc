@@ -26,7 +26,6 @@ const actionCreators = {
 };
 
 export class Categories extends Component {
-
   handleAddItem = (categoryName) => {
     const {
       addItem, currentInputValues, clearInputText,
