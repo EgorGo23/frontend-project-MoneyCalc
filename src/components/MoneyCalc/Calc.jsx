@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import FormPanel from './Main/FormPanel';
+import Form from './Main/Form';
 import ExpensesIncomeList from './Main/ExpensesIncomeList';
 import Categories from './Main/Categories';
 
@@ -7,7 +7,7 @@ class Calc extends Component {
   render() {
     return (
       <Fragment>
-        <FormPanel />
+        <Form />
         <div className="row expensesIncomeList-categories-fields">
           <ExpensesIncomeList />
           <Categories />

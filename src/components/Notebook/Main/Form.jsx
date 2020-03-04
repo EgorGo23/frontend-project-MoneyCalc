@@ -1,24 +1,62 @@
 /* eslint-disable import/prefer-default-export */
 /* eslint-disable eol-last */
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import * as actions from '../../../actions/notebookActions';
+import _ from 'lodash';
 
+const mapStateToProps = ({ notebook }) => {
+  const props = {
+    currentInputData: notebook.currentInputData,
+    list: notebook.noteList,
+  };
+  console.log(props);
+  return props;
+};
+
+const actionCreators = {
+  changeNoteText: actions.changeNoteText,
+  addItem: actions.addItem,
+  clearInputField: actions.clearInputField,
+};
 
 export class Form extends Component {
+  changeNoteTextHandler = ({ target }) => {
+    const { changeNoteText } = this.props;
+    changeNoteText(target.value);
+  }
+
   submitHandler = (event) => {
     event.preventDefault();
+    const { currentInputData, addItem, clearInputField } = this.props;
+    console.log(currentInputData);
+    addItem({
+      id: _.uniqueId(),
+      note: currentInputData.noteText || '',
+    });
+    clearInputField();
   }
   
   render() {
+    const { currentInputData } = this.props;
     return (
-        <form onSubmit={this.submitHandler}>
+      <div className="row form-panel">
+        <div className="col align-self-center form-panel__fields">
+          <form onSubmit={this.submitHandler}>
             <div className="form-group">
-                <input
-                    type="text"
-                    className="form-control"
-                    placeholder="Enter note"
-                />
+              <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Enter note"
+                  value={currentInputData.noteText}
+                  onChange={this.changeNoteTextHandler}
+              />
             </div>
-        </form>
+          </form>
+        </div>
+      </div>
     );
   }
 }
+
+export default connect(mapStateToProps, actionCreators)(Form);

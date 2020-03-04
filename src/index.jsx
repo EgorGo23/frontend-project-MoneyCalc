@@ -5,7 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import App from './components/App';
-import rootReducer from './reducers/calcReducer';
+import rootReducer from './reducers/rootReducer';
 import loadState from './localStorageFunctions/loadState';
 import saveState from './localStorageFunctions/saveState';
 

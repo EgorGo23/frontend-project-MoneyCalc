@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import _ from 'lodash';
+import { uniqueId } from 'lodash';
 import cn from 'classnames';
 import * as actions from '../../../actions/calcActions';
 
@@ -12,41 +12,42 @@ const categoryList = {
   Salary: '+',
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = ({ calc }) => {
   const props = {
-    currentInputValues: state.currentInputData_Calc,
-    list: state.expensesIncomeList_Calc,
+    currentInputData: calc.currentInputData,
+    list: calc.expensesIncomeList,
   };
+  
   return props;
 };
 
 const actionCreators = {
   addItem: actions.addItem,
-  clearInputText: actions.clearInputText,
+  clearInputFields: actions.clearInputFields,
 };
 
 export class Categories extends Component {
-  handleAddItem = (categoryName) => {
+  addItemHandler = (categoryName) => {
     const {
-      addItem, currentInputValues, clearInputText,
+      addItem, currentInputData, clearInputFields,
     } = this.props;
     addItem({
-      id: _.uniqueId(),
+      id: uniqueId(),
       category: {
         categoryName,
         categorySign: categoryList[categoryName],
       },
-      date: currentInputValues.currentDate,
-      money: +currentInputValues.currentMoney,
+      date: currentInputData.dateText,
+      money: +currentInputData.moneyText,
     });
-    clearInputText();
+    clearInputFields();
   }
 
   render() {
-    const { list, currentInputValues } = this.props;
+    const { list, currentInputData } = this.props;
 
     const renderCategoryButton = (categoryName) => (
-      (currentInputValues.currentDate && currentInputValues.currentMoney) ? (
+      (currentInputData.dateText && currentInputData.moneyText) ? (
         <button
           type="button"
           className={cn({
@@ -54,7 +55,7 @@ export class Categories extends Component {
             'categories-field__list__list-item__category-btn': true,
             [`btn-${(categoryList[categoryName]) === '+' ? 'success' : 'danger'}`]: true,
           })}
-          onClick={() => this.handleAddItem(categoryName)}
+          onClick={() => this.addItemHandler(categoryName)}
         >
           {categoryName}
         </button>
@@ -66,7 +67,7 @@ export class Categories extends Component {
             'categories-field__list__list-item__category-btn': true,
             [`btn-${(categoryList[categoryName]) === '+' ? 'success' : 'danger'}`]: true,
           })}
-          onClick={() => this.handleAddItem(categoryName)}
+          onClick={() => this.addItemHandler(categoryName)}
           disabled
         >
           {categoryName}
@@ -79,7 +80,7 @@ export class Categories extends Component {
         <ul className="list-group list-group-flush categories-field__list">
           {Object.keys(categoryList).map((element) => (<li
                 className="list-group-item categories-field__list__list-item"
-                key={_.uniqueId()}
+                key={uniqueId()}
               >
               {renderCategoryButton(element)}
               <strong className={cn({ [`${(categoryList[element]) === '+' ? 'success' : 'danger'}`]: true })}>

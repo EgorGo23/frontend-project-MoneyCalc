@@ -13,8 +13,8 @@ const App = () => (
         </div>
         <div className="col-7 align-self-start main">
           <Switch>
-            <Route path={'/'} exact component={Calc} />
-            <Route path={'/notebook'} component={Note} />
+            <Route path={'/'} exact component={Note} />
+            <Route path={'/notebook'} component={Calc} />
           </Switch>
         </div>
       </div>

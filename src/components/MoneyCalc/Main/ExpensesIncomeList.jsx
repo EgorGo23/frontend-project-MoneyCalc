@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import cn from 'classnames';
-import _ from 'lodash';
+import { uniqueId } from 'lodash';
 import * as actions from '../../../actions/calcActions';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = ({ calc }) => {
   const props = {
-    currentInputValues: state.currentInputData_Calc,
-    list: state.expensesIncomeList_Calc,
+    currentInputData: calc.currentInputData,
+    list: calc.expensesIncomeList,
   };
 
   return props;
@@ -16,19 +16,19 @@ const mapStateToProps = (state) => {
 const actionCreators = {
   removeItem: actions.removeItem,
   clearList: actions.clearList,
-  clearInputText: actions.clearInputText,
+  clearInputFields: actions.clearInputFields,
 };
 
 export class ExpensesIncomeList extends Component {
-  handleRemoveItem = (id) => {
+  removeItemHandler = (id) => {
     const { removeItem } = this.props;
     removeItem(id);
   }
 
-  handleClearList = () => {
-    const { clearList, clearInputText } = this.props;
+  clearListHandler = () => {
+    const { clearList, clearInputFields } = this.props;
     clearList();
-    clearInputText();
+    clearInputFields();
   }
 
   render() {
@@ -42,7 +42,7 @@ export class ExpensesIncomeList extends Component {
 
             <li
               className="list-group-item expensesIncomeList-field__list__list-item pl-0 pr-1"
-              key={_.uniqueId()}
+              key={uniqueId()}
             >
               <div
                 className={cn({
@@ -63,7 +63,7 @@ export class ExpensesIncomeList extends Component {
                   'btn-sm': true,
                   [`${(category.categorySign === '+' || category.categoryName === 'Start value') ? 'btn-outline-success' : 'btn-outline-danger'}`]: true,
                 })}
-                onClick={() => this.handleRemoveItem(id)}
+                onClick={() => this.removeItemHandler(id)}
               >
                 &ndash;
               </button>
@@ -73,7 +73,7 @@ export class ExpensesIncomeList extends Component {
         <button
           type="button"
           className="btn btn-outline-primary mb-4 btn-lg expensesIncomeList-field__btn-reset"
-          onClick={this.handleClearList}
+          onClick={this.clearListHandler}
         >
           Reset
         </button>

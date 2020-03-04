@@ -10,8 +10,8 @@ import {
 
 
 const defaultStateCurrentInput = {
-  currentDate: '',
-  currentMoney: '',
+  dateText: '',
+  moneyText: '',
 };
 
 const defaultStateList = [];
@@ -21,14 +21,14 @@ export const currentInputDataReducer = (state = defaultStateCurrentInput, { type
     case CALC_CHANGE_DATE_TEXT: {
       return {
         ...state,
-        currentDate: payload.date,
+        dateText: payload.date,
       };
     }
 
     case CALC_CHANGE_MONEY_TEXT: {
       return {
         ...state,
-        currentMoney: payload.money,
+        moneyText: payload.money,
       };
     }
 
@@ -66,6 +66,6 @@ export const expensesIncomeListReducer = (state = defaultStateList, { type, payl
 };
 
 export default combineReducers({
-  currentInputData_Calc: currentInputDataReducer,
-  expensesIncomeList_Calc: expensesIncomeListReducer,
+  currentInputData: currentInputDataReducer,
+  expensesIncomeList: expensesIncomeListReducer,
 });

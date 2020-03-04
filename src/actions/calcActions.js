@@ -21,7 +21,7 @@ export const changeMoneyText = (money) => ({
   },
 });
 
-export const clearInputText = () => ({
+export const clearInputFields = () => ({
   type: CALC_CLEAR_INPUT_FIELDS,
 });
 
@@ -43,9 +43,3 @@ export const clearList = () => ({
   type: CALC_CLEAR_LIST,
 });
 
-export const setCategory = (category) => ({
-  type: CALC_SET_CATEGORY,
-  payload: {
-    category,
-  },
-});
