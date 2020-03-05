@@ -1,11 +1,11 @@
-import { 
-  NOTEBOOK_CHANGE_TEXT, 
-  NOTEBOOK_CLEAR_INPUT_FIELD, 
-  NOTEBOOK_ADD_ITEM, 
+import { combineReducers } from 'redux';
+import {
+  NOTEBOOK_CHANGE_TEXT,
+  NOTEBOOK_CLEAR_INPUT_FIELD,
+  NOTEBOOK_ADD_ITEM,
   NOTEBOOK_REMOVE_ITEM,
   NOTEBOOK_CLEAR_LIST,
 } from '../../actions/notebookActions';
-import { combineReducers } from 'redux';
 
 
 const defaultStateCurrentInput = {
@@ -29,7 +29,7 @@ export const currentInputDataReducer = (state = defaultStateCurrentInput, { type
       return state;
     }
   }
-}
+};
 
 export const noteListReducer = (state = defaultStateList, { type, payload }) => {
   switch (type) {
@@ -37,13 +37,13 @@ export const noteListReducer = (state = defaultStateList, { type, payload }) => 
       return [
         payload.item,
         ...state,
-      ]
+      ];
     }
 
     case (NOTEBOOK_REMOVE_ITEM): {
       return state.filter((element) => element.id !== payload.id);
     }
-    
+
     case (NOTEBOOK_CLEAR_LIST): {
       return defaultStateList;
     }
@@ -52,7 +52,7 @@ export const noteListReducer = (state = defaultStateList, { type, payload }) => 
       return state;
     }
   }
-}
+};
 
 export default combineReducers({
   currentInputData: currentInputDataReducer,

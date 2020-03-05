@@ -42,4 +42,3 @@ export const removeItem = (id) => ({
 export const clearList = () => ({
   type: CALC_CLEAR_LIST,
 });
-

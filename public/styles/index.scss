@@ -27,7 +27,25 @@ $br-radius: 8px;
     color: $success;
 }
 
+
 /****Item styles****/ 
+
+
+/**General reset button**/
+.btn-reset {
+    border: 1px solid $blue;
+    color: $blue;
+}
+
+.btn-reset:hover {
+    background-color: $blue;
+    border: 1px solid $blue;
+    color: #fff;
+}
+
+.btn-reset:focus {
+    box-shadow: none;
+}
 
 
 /************/
@@ -44,6 +62,7 @@ $br-radius: 8px;
             background-color: #fff;
             min-width: 900px;
             border-radius: $br-radius;
+            height: 463px;
         }
     }
 }
@@ -105,9 +124,7 @@ $br-radius: 8px;
             border: 1px solid $blue-class-disabled;
             background-color: $blue-class-disabled;
         }
-    }
-
-    
+    }   
 }
 
 
@@ -161,19 +178,6 @@ $br-radius: 8px;
                 }
             }
         }
-    }
-    .expensesIncomeList-field__btn-reset {
-        border: 1px solid $blue;
-        color: $blue;
-    }
-
-    .expensesIncomeList-field__btn-reset:hover {
-        background-color: $blue;
-        color: #fff;
-    }
-
-    .expensesIncomeList-field__btn-reset:focus {
-        box-shadow: none;
     }
 }
 

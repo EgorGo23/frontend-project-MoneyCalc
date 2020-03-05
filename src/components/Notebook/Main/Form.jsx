@@ -1,9 +1,7 @@
-/* eslint-disable import/prefer-default-export */
-/* eslint-disable eol-last */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import * as actions from '../../../actions/notebookActions';
 import _ from 'lodash';
+import * as actions from '../../../actions/notebookActions';
 
 const mapStateToProps = ({ notebook }) => {
   const props = {
@@ -28,15 +26,18 @@ export class Form extends Component {
 
   submitHandler = (event) => {
     event.preventDefault();
+
     const { currentInputData, addItem, clearInputField } = this.props;
-    console.log(currentInputData);
+    if (!currentInputData.noteText) {
+      return;
+    }
     addItem({
       id: _.uniqueId(),
       note: currentInputData.noteText || '',
     });
     clearInputField();
   }
-  
+
   render() {
     const { currentInputData } = this.props;
     return (

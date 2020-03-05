@@ -8,7 +8,7 @@ const mapStateToProps = ({ calc }) => {
     currentInputData: calc.currentInputData,
     list: calc.expensesIncomeList,
   };
-  
+
   return props;
 };
 
@@ -58,7 +58,7 @@ export class Form extends Component {
     return (
       <div className="row form-panel">
         <div className="col align-self-center form-panel__fields">
-          <form onSubmit={this.handleAddItem}>
+          <form>
             <div className="row">
               <div className="col">
                 <input type="text" className="form-control" placeholder="Date" value={currentInputData.dateText} onChange={this.changeDateTextHandler} />
