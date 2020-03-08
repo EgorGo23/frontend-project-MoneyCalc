@@ -31,19 +31,20 @@ $br-radius: 8px;
 /****Item styles****/ 
 
 
-/**General reset button**/
-.btn-reset {
+/**Сustom button styles**/
+
+.btn-custom {
     border: 1px solid $blue;
     color: $blue;
 }
 
-.btn-reset:hover {
+.btn-custom:hover {
     background-color: $blue;
     border: 1px solid $blue;
     color: #fff;
 }
 
-.btn-reset:focus {
+.btn-custom:focus {
     box-shadow: none;
 }
 
@@ -66,7 +67,6 @@ $br-radius: 8px;
         }
     }
 }
-
 
 /***************/
 /****Navbar****/ 
@@ -96,6 +96,7 @@ $br-radius: 8px;
     }
 }
 
+/****************Money Calculation****************/
 
 /***************/
 /****Inputs****/ 
@@ -202,4 +203,21 @@ $br-radius: 8px;
         }
     }
 }
+
+
+/****************Notebook****************/
+
+.notebookList-field {
+    height: 383px;
+
+    .notebookList-field__list {
+        max-height: 280px;
+        overflow: auto;
+
+        .notebookList-field__list__list-item {
+            @extend %flex-container;
+        }
+    }
+}
+
 

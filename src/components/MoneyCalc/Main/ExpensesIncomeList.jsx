@@ -9,7 +9,7 @@ const mapStateToProps = ({ calc }) => {
     currentInputData: calc.currentInputData,
     list: calc.expensesIncomeList,
   };
-  
+
   return props;
 };
 
@@ -72,7 +72,7 @@ export class ExpensesIncomeList extends Component {
         </ul>
         <button
           type="button"
-          className="btn btn-outline-primary mb-4 btn-lg btn-reset"
+          className="btn btn-outline-primary mb-4 btn-lg btn-custom"
           onClick={this.clearListHandler}
         >
           Reset

@@ -1,10 +1,11 @@
 import { combineReducers } from 'redux';
 import {
-  NOTEBOOK_CHANGE_TEXT,
-  NOTEBOOK_CLEAR_INPUT_FIELD,
-  NOTEBOOK_ADD_ITEM,
-  NOTEBOOK_REMOVE_ITEM,
-  NOTEBOOK_CLEAR_LIST,
+  NOTE_CHANGE_TEXT,
+  NOTE_CLEAR_INPUT_FIELDS,
+  NOTE_ADD_ITEM,
+  NOTE_REMOVE_ITEM,
+  NOTE_CLEAR_LIST,
+  NOTE_TOGGLE_CHECKBOX,
 } from '../../actions/notebookActions';
 
 
@@ -16,15 +17,17 @@ const defaultStateList = [];
 
 export const currentInputDataReducer = (state = defaultStateCurrentInput, { type, payload }) => {
   switch (type) {
-    case (NOTEBOOK_CHANGE_TEXT): {
+    case (NOTE_CHANGE_TEXT): {
       return {
         ...state,
-        noteText: payload.note,
+        noteText: payload.text,
       };
     }
-    case (NOTEBOOK_CLEAR_INPUT_FIELD): {
+
+    case (NOTE_CLEAR_INPUT_FIELDS): {
       return defaultStateCurrentInput;
     }
+
     default: {
       return state;
     }
@@ -33,18 +36,29 @@ export const currentInputDataReducer = (state = defaultStateCurrentInput, { type
 
 export const noteListReducer = (state = defaultStateList, { type, payload }) => {
   switch (type) {
-    case (NOTEBOOK_ADD_ITEM): {
+    case (NOTE_ADD_ITEM): {
       return [
         payload.item,
         ...state,
       ];
     }
 
-    case (NOTEBOOK_REMOVE_ITEM): {
+    case (NOTE_TOGGLE_CHECKBOX): {
+      const currentElementInd = state.findIndex((element) => element.id === payload.id);
+      const newItem = { ...state[currentElementInd], completed: !state[currentElementInd].completed };
+
+      return [
+        ...state.slice(0, currentElementInd),
+        newItem,
+        ...state.slice(currentElementInd + 1),
+      ];
+    }
+
+    case (NOTE_REMOVE_ITEM): {
       return state.filter((element) => element.id !== payload.id);
     }
 
-    case (NOTEBOOK_CLEAR_LIST): {
+    case (NOTE_CLEAR_LIST): {
       return defaultStateList;
     }
 

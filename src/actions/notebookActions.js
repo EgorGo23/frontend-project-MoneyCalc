@@ -1,34 +1,43 @@
-export const NOTEBOOK_CHANGE_TEXT = 'NOTEBOOK_CHANGE_TEXT';
-export const NOTEBOOK_ADD_ITEM = 'CALC_ADD_ITEM';
-export const NOTEBOOK_CLEAR_INPUT_FIELD = 'NOTEBOOK_CLEAR_INPUT_FIELD';
-export const NOTEBOOK_REMOVE_ITEM = 'NOTEBOOK_REMOVE_ITEM';
-export const NOTEBOOK_CLEAR_LIST = 'NOTEBOOK_CLEAR_LIST';
+export const NOTE_CHANGE_TEXT = 'NOTE_CHANGE_TEXT';
+export const NOTE_CLEAR_INPUT_FIELDS = 'NOTE_CLEAR_INPUT_FIELDS';
+export const NOTE_ADD_ITEM = 'NOTE_ADD_ITEM';
+export const NOTE_REMOVE_ITEM = 'NOTE_REMOVE_ITEM';
+export const NOTE_CLEAR_LIST = 'NOTE_CLEAR_LIST';
+export const NOTE_TOGGLE_CHECKBOX = 'NOTE_TOGGLE_CHECKBOX';
 
-export const changeNoteText = (note) => ({
-  type: NOTEBOOK_CHANGE_TEXT,
+
+export const changeText = (text) => ({
+  type: NOTE_CHANGE_TEXT,
   payload: {
-    note,
+    text,
   },
 });
 
+export const clearInputFields = () => ({
+  type: NOTE_CLEAR_INPUT_FIELDS,
+});
+
 export const addItem = (item) => ({
-  type: NOTEBOOK_ADD_ITEM,
+  type: NOTE_ADD_ITEM,
   payload: {
     item,
   },
 });
 
-export const clearInputField = () => ({
-  type: NOTEBOOK_CLEAR_INPUT_FIELD,
-});
-
 export const removeItem = (id) => ({
-  type: NOTEBOOK_REMOVE_ITEM,
+  type: NOTE_REMOVE_ITEM,
   payload: {
     id,
   },
 });
 
 export const clearList = () => ({
-  type: NOTEBOOK_CLEAR_LIST,
+  type: NOTE_CLEAR_LIST,
+});
+
+export const toggleCheckbox = (id) => ({
+  type: NOTE_TOGGLE_CHECKBOX,
+  payload: {
+    id,
+  },
 });

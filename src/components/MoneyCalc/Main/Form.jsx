@@ -13,21 +13,25 @@ const mapStateToProps = ({ calc }) => {
 };
 
 const actionCreators = {
-  changeDateText: actions.changeDateText,
-  changeMoneyText: actions.changeMoneyText,
+  changeText: actions.changeText,
   addItem: actions.addItem,
   clearInputFields: actions.clearInputFields,
 };
 
 export class Form extends Component {
   changeDateTextHandler = ({ target }) => {
-    const { changeDateText } = this.props;
-    changeDateText(target.value);
+    const { changeText } = this.props;
+    changeText(target.value);
   }
 
   changeMoneyTextHandler = ({ target }) => {
-    const { changeMoneyText } = this.props;
-    changeMoneyText(target.value);
+    const { changeText } = this.props;
+
+    if (+target.value) {
+      changeText(+target.value);
+    } else {
+      changeText(null);
+    }
   }
 
   addItemHandler = () => {

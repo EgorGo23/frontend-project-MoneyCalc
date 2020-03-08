@@ -1,7 +1,6 @@
 import { combineReducers } from 'redux';
 import {
-  CALC_CHANGE_DATE_TEXT,
-  CALC_CHANGE_MONEY_TEXT,
+  CALC_CHANGE_TEXT,
   CALC_CLEAR_INPUT_FIELDS,
   CALC_ADD_ITEM,
   CALC_REMOVE_ITEM,
@@ -18,17 +17,22 @@ const defaultStateList = [];
 
 export const currentInputDataReducer = (state = defaultStateCurrentInput, { type, payload }) => {
   switch (type) {
-    case CALC_CHANGE_DATE_TEXT: {
+    case CALC_CHANGE_TEXT: {
+      if (payload.text === null) {
+        return {
+          ...state,
+          moneyText: '',
+        };
+      }
+      if (typeof payload.text === 'string') {
+        return {
+          ...state,
+          dateText: payload.text,
+        };
+      }
       return {
         ...state,
-        dateText: payload.date,
-      };
-    }
-
-    case CALC_CHANGE_MONEY_TEXT: {
-      return {
-        ...state,
-        moneyText: payload.money,
+        moneyText: payload.text,
       };
     }
 

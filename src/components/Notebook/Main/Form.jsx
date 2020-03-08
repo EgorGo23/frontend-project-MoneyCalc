@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import _ from 'lodash';
+import { uniqueId } from 'lodash';
 import * as actions from '../../../actions/notebookActions';
 
 const mapStateToProps = ({ notebook }) => {
@@ -8,34 +8,36 @@ const mapStateToProps = ({ notebook }) => {
     currentInputData: notebook.currentInputData,
     list: notebook.noteList,
   };
-  console.log(props);
   return props;
 };
 
 const actionCreators = {
-  changeNoteText: actions.changeNoteText,
+  changeText: actions.changeText,
   addItem: actions.addItem,
-  clearInputField: actions.clearInputField,
+  clearInputFields: actions.clearInputFields,
 };
 
 export class Form extends Component {
   changeNoteTextHandler = ({ target }) => {
-    const { changeNoteText } = this.props;
-    changeNoteText(target.value);
+    const { changeText } = this.props;
+    changeText(target.value);
   }
 
   submitHandler = (event) => {
     event.preventDefault();
 
-    const { currentInputData, addItem, clearInputField } = this.props;
+    const { currentInputData, addItem, clearInputFields } = this.props;
     if (!currentInputData.noteText) {
       return;
     }
+
     addItem({
-      id: _.uniqueId(),
+      id: uniqueId(),
       note: currentInputData.noteText || '',
+      completed: false,
     });
-    clearInputField();
+
+    clearInputFields();
   }
 
   render() {

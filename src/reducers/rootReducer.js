@@ -3,6 +3,6 @@ import calc from './calc/calcReducer';
 import notebook from './notebook/notebookReducer';
 
 export default combineReducers({
-  calc,
   notebook,
+  calc,
 });
