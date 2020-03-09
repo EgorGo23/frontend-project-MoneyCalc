@@ -1,0 +1,60 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.App {
+    height: 100vh;
+    width: 100%;
+    /* background: aqua; */
+}
+
+.main-col {
+    max-width: 900px;
+    margin: 0 auto;
+    height: 100%;
+}
+
+.Header {
+    min-width: 200px;
+    border: 2px solid red;
+    height: 80px;
+}
+
+.btnNav {
+    width: 350px;
+    height: 80px;
+    border: 2px solid yellow;
+    text-decoration: none;
+    background-color: #fff;
+    border-radius: 5px;
+    text-align: center;
+}
+
+
+.btn-row {
+    height: 80px;
+}
+.btn-col {
+    max-width: 350px;
+    height: 80px;
+}
+
+@media (min-width: 278px) {
+    .btnNav > h2 {
+        padding-top: 1rem;
+    }
+}
+
+@media (max-width: 278px) {
+    .h2-notebook {
+        padding-top: 1rem;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .rowNav {
+        justify-content: center;
+    }
+}

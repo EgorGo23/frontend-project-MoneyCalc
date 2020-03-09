@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { uniqueId } from 'lodash';
 import * as actions from '../../../actions/notebookActions';
+import cn from 'classnames';
 
 const mapStateToProps = ({ notebook }) => {
   const props = {
@@ -39,19 +40,23 @@ export class Notes extends Component {
 
   render() {
     const { list } = this.props;
-
+  
     return (
       <div className="row notebookList-field">
         <div className="col d-flex align-items-center justify-content-between flex-column">
           <ul className="list-group list-group-flush notebookList-field__list w-100">
-            {list.map(({ id, note }) => (
+            {list.map(({ id, note, completed }) => (
               <li
                 key={uniqueId()}
-                className="list-group-item notebookList-field__list__list-item pl-0 pr-1"
+                className="list-group-item notebookList-field__list__list-item pl-0 py-2 pr-1"
               >
-                <div className="custom-control custom-checkbox ml-1">
-                  <input className="custom-control-input" type="checkbox" id={id} onClick={() => this.toggleCheckboxHandler(id)}/>
-                  <label className="custom-control-label" htmlFor={id}>{note}</label>
+                <div className="ml-1">
+                  <input type="checkbox" id={id} onClick={() => this.toggleCheckboxHandler(id)} onChange={()=>{}} checked={completed} />
+                  <label 
+                    htmlFor={id}    
+                  >
+                    {note}
+                  </label>
                 </div>
                 <button
                   type="button"
@@ -79,3 +84,17 @@ export class Notes extends Component {
 }
 
 export default connect(mapStateToProps, actionCreators)(Notes);
+
+
+{/* <div className="custom-control custom-checkbox ml-1">
+                  <input className="custom-control-input" type="checkbox" id={id} onClick={() => this.toggleCheckboxHandler(id)} onChange={()=>{}} checked={completed} />
+                  <label 
+                    className={cn({
+                      'custom-control-label': true,
+                      [`${completed ? 'completed' : ''}`]: true,
+                     })} 
+                    htmlFor={id}
+                  >
+                    {note}
+                  </label>
+                </div> */}

@@ -50,7 +50,7 @@ export class Form extends Component {
               <input
                   type="text"
                   className="form-control"
-                  placeholder="Enter note"
+                  placeholder="Enter Note"
                   value={currentInputData.noteText}
                   onChange={this.changeNoteTextHandler}
               />

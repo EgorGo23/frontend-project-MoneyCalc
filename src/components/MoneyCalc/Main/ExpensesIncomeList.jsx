@@ -34,7 +34,7 @@ export class ExpensesIncomeList extends Component {
   render() {
     const { list } = this.props;
     return (
-      <div className="col-7 expensesIncomeList-field">
+      <div className="col-lg-7 expensesIncomeList-field">
         <ul className="list-group list-group-flush expensesIncomeList-field__list">
           {list.map(({
             id, category, date, money,

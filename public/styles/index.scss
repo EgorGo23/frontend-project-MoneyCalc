@@ -8,8 +8,8 @@ $blue: #02b9f3;
 $light-blue: #93e1ed;
 $dark-blue: #005c9d;
 $blue-class-disabled: #0183ac;
-$danger: #dc3545;
-$success: #28a745;
+$red: #dc3545;
+$green: #28a745;
 
 $br-radius: 8px;
 
@@ -20,11 +20,11 @@ $br-radius: 8px;
 }
 
 .danger {
-    color: $danger;
+    color: $red;
 }
 
 .success {
-    color: $success;
+    color: $green;
 }
 
 
@@ -55,13 +55,17 @@ $br-radius: 8px;
 
 .app {
     background-color: $light-blue;
+    background-position: center center;
+    background-repeat: no-repeat; 
+    background-attachment: fixed;
+    background-size: cover;
 
     .main-row {
         height: 100vh;
         
         .main {
             background-color: #fff;
-            min-width: 900px;
+            max-width: 900px;
             border-radius: $br-radius;
             height: 463px;
         }
@@ -221,3 +225,53 @@ $br-radius: 8px;
 }
 
 
+input[type="checkbox"] {
+    display: none;
+}
+
+input[type="checkbox"] + label {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 20px;
+  color: #777;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+input[type="checkbox"] + label:last-child {
+    margin-bottom: 0;
+}
+
+input[type="checkbox"] + label:before {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid $light-blue;
+    position: absolute;
+    left: 0;
+    top: 2px;
+    opacity: .6;
+    -webkit-transition: all .12s, border-color .08s;
+    transition: all .12s, border-color .08s;
+}
+
+input[type="checkbox"]:checked + label:before {
+    width: 10px;
+    top: -2px;
+    left: 5px;
+    border-radius: 0;
+    border: 2px solid $green;
+    opacity: 1;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+input[type="checkbox"]:checked + label {
+    color: $green;
+}
