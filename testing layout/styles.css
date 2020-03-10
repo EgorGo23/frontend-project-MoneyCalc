@@ -6,20 +6,24 @@
 
 .App {
     height: 100vh;
-    width: 100%;
-    /* background: aqua; */
+    min-width: 200px;
+    background-color: #93e1ed;
 }
 
+/* @media (max-width: 200px) {
+    .App {
+        height: 1000px;
+    }
+} */
+
 .main-col {
-    max-width: 900px;
+    max-width: 800px;
     margin: 0 auto;
     height: 100%;
 }
 
 .Header {
     min-width: 200px;
-    border: 2px solid red;
-    height: 80px;
 }
 
 .btnNav {
@@ -33,12 +37,9 @@
 }
 
 
-.btn-row {
-    height: 80px;
-}
+
 .btn-col {
     max-width: 350px;
-    height: 80px;
 }
 
 @media (min-width: 278px) {
@@ -57,4 +58,71 @@
     .rowNav {
         justify-content: center;
     }
+}
+
+
+
+.MainContent {
+    background-color: #fff;
+    height: 463px;
+    min-width: 200px;
+    margin-top: 190px;    
+}
+
+@media (max-width: 767.98px) {
+    .MainContent {
+        margin-top: 95px;
+        height: 900px;
+    } 
+}
+
+@media (max-width: 575.98px) {
+    .MainContent {
+        margin-top: 0;
+    } 
+}
+
+.btn-add {
+    width: 90px;
+}
+
+@media (max-width: 767.98px) {
+    .form {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .btn-add {
+        margin-top: 10px;
+        width: 90px;
+    }
+}
+
+
+.exp {
+    margin-top: 25px;
+    height: 380px;
+}
+
+.listOne {
+    max-height: 295px;
+    max-width: 498px;
+    overflow: auto;   
+}
+
+@media (max-width: 767.98px) {
+    .col-ex {
+        flex-grow: 3;
+        max-width: 100%;
+    }
+}
+
+
+
+.item-last {
+    align-items: baseline;
+}
+
+.res {
+    margin-top: 45px;
 }
