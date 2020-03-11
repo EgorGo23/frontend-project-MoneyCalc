@@ -52,7 +52,6 @@ export class Categories extends Component {
           type="button"
           className={cn({
             btn: true,
-            'categories-field__list__list-item__category-btn': true,
             [`btn-${(categoryList[categoryName]) === '+' ? 'success' : 'danger'}`]: true,
           })}
           onClick={() => this.addItemHandler(categoryName)}
@@ -64,7 +63,6 @@ export class Categories extends Component {
           type="button"
           className={cn({
             btn: true,
-            'categories-field__list__list-item__category-btn': true,
             [`btn-${(categoryList[categoryName]) === '+' ? 'success' : 'danger'}`]: true,
           })}
           onClick={() => this.addItemHandler(categoryName)}
@@ -76,10 +74,10 @@ export class Categories extends Component {
     );
 
     return (
-      <div className="col categories-field">
-        <ul className="list-group list-group-flush categories-field__list">
+      <div className="col-md-6 col-cat">
+        <ul className="list-group list-group-flush">
           {Object.keys(categoryList).map((element) => (<li
-                className="list-group-item categories-field__list__list-item"
+                className="list-group-item d-flex justify-content-between align-items-center"
                 key={uniqueId()}
               >
               {renderCategoryButton(element)}
@@ -89,10 +87,10 @@ export class Categories extends Component {
               </strong>
             </li>))}
           <li
-            className="list-group-item categories-field__list__list-item-last mt-1"
+            className="list-group-item categoriesList-last-item d-flex justify-content-between align-items-center"
           >
             <h4>Total</h4>
-            <strong className="categories-field__list__list-item-last__total-value">
+            <strong className="total-value">
               { list.reduce((acc, { category, money }) => {
                 if (category.categoryName === 'Start value' || category.categorySign === '+') {
                   return acc + money;

@@ -53,34 +53,28 @@ export class Form extends Component {
 
     const renderStartButton = () => (
       (list.length || !(currentInputData.dateText && currentInputData.moneyText)) ? (
-        <button type="button" onClick={this.addItemHandler} className="btn btn-primary form-panel__fields__btn-add-field__btn-add_disabled" disabled>Add start value</button>
+        <button type="button" onClick={this.addItemHandler} className="btn btn-add_disabled">Add start value</button>
       ) : (
-        <button type="button" onClick={this.addItemHandler} className="btn btn-primary form-panel__fields__btn-add-field__btn-add">Add start value</button>
-      )
+        <button type="button" onClick={this.addItemHandler} className="btn btn-add">Add start value</button>
+        )
     );
 
     return (
-      <div className="row form-panel">
-        <div className="col align-self-center form-panel__fields">
-          <form>
-            <div className="row">
+      <div className="form d-flex justify-content-md-between pt-2">
+        <form>
+          <div className="row justify-content-md-between justify-content-sm-center">
               <div className="col">
                 <input type="text" className="form-control" placeholder="Date" value={currentInputData.dateText} onChange={this.changeDateTextHandler} />
-                <small id="dateHelp" className="form-text text-muted">Enter the date in the format &apos;xx.xx.xx&apos;</small>
               </div>
               <div className="col">
                 <input type="text" className="form-control" placeholder="Money" value={currentInputData.moneyText} onChange={this.changeMoneyTextHandler} />
-                <small id="moneyHelp" className="form-text text-muted">Enter a numerical value</small>
               </div>
-              <div className="col form-panel__fields__btn-add-field">
-                {renderStartButton()}
-              </div>
-            </div>
-          </form>
-        </div>
+          </div>
+        </form>
+        {renderStartButton()}
       </div>
     );
   }
 }
-
+      
 export default connect(mapStateToProps, actionCreators)(Form);

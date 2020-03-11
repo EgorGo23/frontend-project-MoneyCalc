@@ -7,17 +7,11 @@
 $blue: #02b9f3;
 $light-blue: #93e1ed;
 $dark-blue: #005c9d;
-$blue-class-disabled: #0183ac;
+$blue-class-hover: #0183ac;
 $red: #dc3545;
 $green: #28a745;
 
 $br-radius: 8px;
-
-%flex-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
 
 .danger {
     color: $red;
@@ -53,84 +47,147 @@ $br-radius: 8px;
 /****App****/ 
 /**********/
 
-.app {
-    background-color: $light-blue;
-    background-position: center center;
-    background-repeat: no-repeat; 
-    background-attachment: fixed;
-    background-size: cover;
+.App {
+    height: 100vh;
+    min-width: 200px;
+    background-color: #93e1ed;
 
-    .main-row {
-        height: 100vh;
-        
-        .main {
-            background-color: #fff;
-            max-width: 900px;
-            border-radius: $br-radius;
-            height: 463px;
-        }
+    @media (max-height: 732px) {
+        height: auto;
+    }
+
+    .interfaceWrapper {
+        max-width: 800px;
+        min-width: 378px;
+        margin: 0 auto;
+        height: 100%;
     }
 }
 
-/***************/
-/****Navbar****/ 
-/*************/
-.navbar {
-    .navbar__btn-panel {
-        max-width: 900px;
 
-        .navbar__btn-panel__nav-link {
+/***************/
+/****Header****/ 
+/*************/
+.Header {
+    min-width: 200px;
+
+    .col_btn-nav {
+        max-width: 350px;
+
+        .btn-nav {
+            width: 350px;
+            height: 80px;
             text-decoration: none;
             color: $dark-blue;
-            width: 400px;
             background-color: #fff;
             border-radius: $br-radius;
             text-align: center;
+            padding-top: 1rem;
         }
 
-        .navbar__btn-panel__nav-link:hover {
+        .btn-nav:hover {
             background-color: $dark-blue;
             transition: all 0.2s linear;
-            
-            .navbar__btn-panel__nav-link__btn-name {
+
+            .btn-nav_name {
                 color: #fff;
                 transition: all 0.2s linear;
             }
         }
     }
+
+    // @media (min-width: 278px) {
+    //     .btn-nav > h2 {
+    //         padding-top: 1rem;
+    //     }
+    // }
+
+    // @media (max-width: 278px) {
+    //     .btn-nav_name_notebook {
+    //         padding-top: 1rem;
+    //     }
+    // }
+
+    @media (max-width: 575.98px) {
+        .row_header {
+            justify-content: center;
+        }
+    } 
 }
 
-/****************Money Calculation****************/
 
-/***************/
-/****Inputs****/ 
+/********************/
+/****MainContent****/ 
+/******************/
+.MainContent {
+    background-color: #fff;
+    height: 463px;
+    min-width: 200px;
+    margin-top: 190px;
+    border-radius: $br-radius;
+
+
+    @media (max-width: 767.98px) {
+        margin-top: 95px;
+        height: auto;
+    }
+    
+    @media (max-width: 575.98px) {
+        margin-top: 0;
+    }
+}
+
+.row_content {
+    margin-top: 25px;
+    height: 380px;
+}
+
 /*************/
+/****Form****/ 
+/***********/
+
 %btn-add {
-    margin-left: 137px;
     border: 1px solid $blue;
     background-color: $blue;
+    color: #fff;
+}
+
+.btn-add {
+    @extend %btn-add;
+
+    &:hover {
+        border: 1px solid $blue-class-hover;
+        background-color: $blue-class-hover;
+        color: #fff;
+    }
+}
+
+.btn-add_disabled {
+    @extend %btn-add;
+    opacity: 0.5;
+
+    &:hover {
+        color: #fff;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .form {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .btn-add {
+        margin-top: 10px;
+    }
+    .btn-add_disabled {
+        margin-top: 10px;
+    }
 }
 
 
-.form-panel {
-    height: 80px;
 
-    .form-panel__fields__btn-add-field {
-        
-        .form-panel__fields__btn-add-field__btn-add {  
-            @extend %btn-add;
-        }
-
-        .form-panel__fields__btn-add-field__btn-add_disabled {  
-            @extend %btn-add;
-        }
-
-        .form-panel__fields__btn-add-field__btn-add:hover {  
-            border: 1px solid $blue-class-disabled;
-            background-color: $blue-class-disabled;
-        }
-    }   
-}
+/****************Money Calculation****************/
 
 
 /*************************************/
@@ -158,31 +215,36 @@ $br-radius: 8px;
     background-color: #eee;
 }
 
-.expensesIncomeList-field {
-    @extend %flex-container;
-    flex-direction: column;
 
-    .expensesIncomeList-field__list {
-        width: 498px;
-        max-height: 280px;
-        overflow: auto;
 
-        .expensesIncomeList-field__list__list-item {
-            width: 480px;
-            @extend %flex-container;
+.list_expInc {
+    height: 295px;
+    overflow: auto;
 
-            .expensesIncomeList-field__list__list-item__content-field {
-                width: 90%;
-                @extend %flex-container;
-
-                .expensesIncomeList-field__list__list-item__content-field__category-name {
-                    width: 45%;
-                }
-                .expensesIncomeList-field__list__list-item__content-field__money {
-                    width: 15%;
-                }
-            }
+    .data-field {
+        width: 90%;
+        .data-field_category-name {
+            width: 45%;
         }
+        .data-field_money {
+            width: 15%;
+        }
+    }
+}
+
+.btn-custom {
+    margin-top: 30px;
+}
+
+@media (max-width: 767.98px) {
+    .App {
+        height: auto;
+    }
+    .row_content {
+        height: auto;
+    }
+    .btn-custom {
+        margin-top: 20px;
     }
 }
 
@@ -190,39 +252,36 @@ $br-radius: 8px;
 /****************************/
 /****Panel of Categories****/ 
 /**************************/
-.categories-field {
-    .categories-field__list {
-        .categories-field__list__list-item {
-            @extend %flex-container;
-        }
 
-        .categories-field__list__list-item-last {
-            @extend %flex-container;
-            align-items: baseline;
-            color: $blue;
-        
-            .categories-field__list__list-item-last__total-value {
-                font-size: 1.5rem;
-            }
-        }
+.categoriesList-last-item {
+    color: $blue;
+
+    .total-value {
+        font-size: xx-large;
     }
 }
+
+
+
+
+
+
 
 
 /****************Notebook****************/
 
-.notebookList-field {
-    height: 383px;
+// .notebookList-field {
+//     height: 383px;
 
-    .notebookList-field__list {
-        max-height: 280px;
-        overflow: auto;
+//     .notebookList-field__list {
+//         max-height: 280px;
+//         overflow: auto;
 
-        .notebookList-field__list__list-item {
-            @extend %flex-container;
-        }
-    }
-}
+//         .notebookList-field__list__list-item {
+//             @extend %flex-container;
+//         }
+//     }
+// }
 
 
 input[type="checkbox"] {

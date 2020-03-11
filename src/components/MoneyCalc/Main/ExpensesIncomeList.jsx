@@ -34,26 +34,25 @@ export class ExpensesIncomeList extends Component {
   render() {
     const { list } = this.props;
     return (
-      <div className="col-lg-7 expensesIncomeList-field">
-        <ul className="list-group list-group-flush expensesIncomeList-field__list">
+      <div className="col-md-6 col-ex d-flex flex-column">
+        <ul className="list-group list-group-flush list_expInc">
           {list.map(({
             id, category, date, money,
           }) => (
-
             <li
-              className="list-group-item expensesIncomeList-field__list__list-item pl-0 pr-1"
+              className="list-group-item pl-0 pr-1 d-flex justify-content-between align-items-center"
               key={uniqueId()}
             >
               <div
                 className={cn({
-                  'expensesIncomeList-field__list__list-item__content-field': true,
+                  "data-field d-flex justify-content-between align-items-center": true,
                   [`${(category.categorySign === '+' || category.categoryName === 'Start value') ? 'success' : 'danger'}`]: true,
                 })}
               >
-                <strong className="expensesIncomeList-field__list__list-item__content-field__category-name">{category.categoryName}</strong>
-                <span className="expensesIncomeList-field__list__list-item__content-field__date">{date}</span>
-                <strong className="expensesIncomeList-field__list__list-item__content-field__money">
-                  {(category.categorySign === '+' || category.categoryName === 'Start value') ? money : `-${money}`}
+                <strong className="data-field_category-name">{category.categoryName}</strong>
+                <span>{date}</span>
+                <strong className="data-field_money">
+                  {(category.categorySign === '+' || category.categoryName === 'Start value') ? `+${money}` : `-${money}`}
                 </strong>
               </div>
               <button
@@ -72,7 +71,7 @@ export class ExpensesIncomeList extends Component {
         </ul>
         <button
           type="button"
-          className="btn btn-outline-primary mb-4 btn-lg btn-custom"
+          className="btn btn-custom align-self-center"
           onClick={this.clearListHandler}
         >
           Reset
