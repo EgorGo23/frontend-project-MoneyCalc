@@ -45,13 +45,13 @@ export class ExpensesIncomeList extends Component {
             >
               <div
                 className={cn({
-                  "data-field d-flex justify-content-between align-items-center": true,
+                  'data-field d-flex justify-content-between align-items-center': true,
                   [`${(category.categorySign === '+' || category.categoryName === 'Start value') ? 'success' : 'danger'}`]: true,
                 })}
               >
                 <strong className="data-field_category-name">{category.categoryName}</strong>
-                <span>{date}</span>
-                <strong className="data-field_money">
+                <span className="data-field_category-date">{date}</span>
+                <strong className="data-field_category-money">
                   {(category.categorySign === '+' || category.categoryName === 'Start value') ? `+${money}` : `-${money}`}
                 </strong>
               </div>

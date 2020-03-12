@@ -87,7 +87,7 @@ export class Categories extends Component {
               </strong>
             </li>))}
           <li
-            className="list-group-item categoriesList-last-item d-flex justify-content-between align-items-center"
+            className="list-group-item categoriesList_last-item d-flex justify-content-between align-items-center"
           >
             <h4>Total</h4>
             <strong className="total-value">

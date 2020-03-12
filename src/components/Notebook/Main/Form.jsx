@@ -43,20 +43,18 @@ export class Form extends Component {
   render() {
     const { currentInputData } = this.props;
     return (
-      <div className="row form-panel">
-        <div className="col align-self-center form-panel__fields">
-          <form onSubmit={this.submitHandler}>
-            <div className="form-group">
-              <input
-                  type="text"
-                  className="form-control"
-                  placeholder="Enter Note"
-                  value={currentInputData.noteText}
-                  onChange={this.changeNoteTextHandler}
-              />
-            </div>
-          </form>
-        </div>
+      <div className="form-notebook pt-2">
+        <form onSubmit={this.submitHandler}>
+          <div className="form-group">
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Enter Note"
+              value={currentInputData.noteText}
+              onChange={this.changeNoteTextHandler}
+            />
+          </div>
+        </form>
       </div>
     );
   }

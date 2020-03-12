@@ -26,7 +26,6 @@ export class Form extends Component {
 
   changeMoneyTextHandler = ({ target }) => {
     const { changeText } = this.props;
-
     if (+target.value) {
       changeText(+target.value);
     } else {
@@ -53,14 +52,14 @@ export class Form extends Component {
 
     const renderStartButton = () => (
       (list.length || !(currentInputData.dateText && currentInputData.moneyText)) ? (
-        <button type="button" onClick={this.addItemHandler} className="btn btn-add_disabled">Add start value</button>
+        <button type="button" className="btn btn-add_disabled">Add start value</button>
       ) : (
         <button type="button" onClick={this.addItemHandler} className="btn btn-add">Add start value</button>
-        )
+      )
     );
 
     return (
-      <div className="form d-flex justify-content-md-between pt-2">
+      <div className="form-moneyCalc d-flex justify-content-md-between pt-2">
         <form>
           <div className="row justify-content-md-between justify-content-sm-center">
               <div className="col">

@@ -47,20 +47,39 @@ $br-radius: 8px;
 /****App****/ 
 /**********/
 
-.App {
+%App {
     height: 100vh;
-    min-width: 200px;
+    min-width: 378px;
     background-color: #93e1ed;
+}
+
+
+%interfaceWrapper {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.interfaceWrapper-moneyCalc {
+    @extend %interfaceWrapper;
+}
+
+.interfaceWrapper-notebook {
+    @extend %interfaceWrapper;
+}
+
+.App-moneyCalc {
+    @extend %App;
 
     @media (max-height: 732px) {
         height: auto;
     }
+}
 
-    .interfaceWrapper {
-        max-width: 800px;
-        min-width: 378px;
-        margin: 0 auto;
-        height: 100%;
+.App-notebook {
+    @extend %App;
+
+    @media (max-height: 732px) {
+        height: auto;
     }
 }
 
@@ -96,18 +115,6 @@ $br-radius: 8px;
         }
     }
 
-    // @media (min-width: 278px) {
-    //     .btn-nav > h2 {
-    //         padding-top: 1rem;
-    //     }
-    // }
-
-    // @media (max-width: 278px) {
-    //     .btn-nav_name_notebook {
-    //         padding-top: 1rem;
-    //     }
-    // }
-
     @media (max-width: 575.98px) {
         .row_header {
             justify-content: center;
@@ -119,7 +126,7 @@ $br-radius: 8px;
 /********************/
 /****MainContent****/ 
 /******************/
-.MainContent {
+.MainContent-moneyCalc {
     background-color: #fff;
     height: 463px;
     min-width: 200px;
@@ -137,10 +144,27 @@ $br-radius: 8px;
     }
 }
 
-.row_content {
-    margin-top: 25px;
-    height: 380px;
+.MainContent-notebook {
+    background-color: #fff;
+    height: 463px;
+    min-width: 200px;
+    margin-top: 190px;
+    border-radius: $br-radius;
+
+
+    @media (max-height: 732px) {
+        margin-top: 0;
+    }
+
+    @media (max-width: 480px) {
+        margin-top: 108px
+    }
+
+    @media (max-width: 360px) {
+        margin-top: 49px
+    }
 }
+
 
 /*************/
 /****Form****/ 
@@ -150,6 +174,7 @@ $br-radius: 8px;
     border: 1px solid $blue;
     background-color: $blue;
     color: #fff;
+    outline: none;
 }
 
 .btn-add {
@@ -165,14 +190,20 @@ $br-radius: 8px;
 .btn-add_disabled {
     @extend %btn-add;
     opacity: 0.5;
+    
 
     &:hover {
         color: #fff;
     }
+
+    &:focus {
+        outline: none;
+        box-shadow: none;
+    }
 }
 
 @media (max-width: 767.98px) {
-    .form {
+    .form-moneyCalc {
         flex-direction: column;
         justify-content: center;
         align-items: center;
@@ -215,7 +246,10 @@ $br-radius: 8px;
     background-color: #eee;
 }
 
-
+.row_content {
+    margin-top: 25px;
+    height: 380px;
+}
 
 .list_expInc {
     height: 295px;
@@ -226,8 +260,12 @@ $br-radius: 8px;
         .data-field_category-name {
             width: 45%;
         }
-        .data-field_money {
+        .data-field_category-date {
             width: 15%;
+        }
+        .data-field_category-money {
+            text-align: center;
+            width: 20%;
         }
     }
 }
@@ -237,7 +275,7 @@ $br-radius: 8px;
 }
 
 @media (max-width: 767.98px) {
-    .App {
+    .App-moneyCalc {
         height: auto;
     }
     .row_content {
@@ -253,8 +291,12 @@ $br-radius: 8px;
 /****Panel of Categories****/ 
 /**************************/
 
-.categoriesList-last-item {
+.categoriesList_last-item {
     color: $blue;
+
+    & > h4 {
+        margin-bottom: 0;
+    }
 
     .total-value {
         font-size: xx-large;
@@ -263,12 +305,29 @@ $br-radius: 8px;
 
 
 
-
-
-
-
-
 /****************Notebook****************/
+
+.form-notebook {
+    
+}
+
+.col_notebook {
+    height: 383px;
+}
+
+.list_notebook {
+    max-height: 280px;
+    overflow: auto;
+}
+
+.list-item_data {
+    width: 90%;
+    word-wrap: break-word;
+}
+
+.list_notebook .btn-custom {
+    margin-top: 0;
+} 
 
 // .notebookList-field {
 //     height: 383px;
@@ -282,6 +341,7 @@ $br-radius: 8px;
 //         }
 //     }
 // }
+
 
 
 input[type="checkbox"] {
@@ -304,6 +364,7 @@ input[type="checkbox"] + label:last-child {
     margin-bottom: 0;
 }
 
+
 input[type="checkbox"] + label:before {
     content: '';
     display: block;
@@ -312,7 +373,8 @@ input[type="checkbox"] + label:before {
     border: 2px solid $light-blue;
     position: absolute;
     left: 0;
-    top: 2px;
+    top: 50%;
+    transform: translateY(-50%);
     opacity: .6;
     -webkit-transition: all .12s, border-color .08s;
     transition: all .12s, border-color .08s;
@@ -320,7 +382,8 @@ input[type="checkbox"] + label:before {
 
 input[type="checkbox"]:checked + label:before {
     width: 10px;
-    top: -2px;
+    top: 50%;
+    transform: translateY(-50%);
     left: 5px;
     border-radius: 0;
     border: 2px solid $green;

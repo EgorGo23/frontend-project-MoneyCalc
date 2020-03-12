@@ -20,7 +20,7 @@ class Header extends Component {
               to="/notebook"
               className="btn-nav"
             >
-              <h2 className="btn-nav_name btn-nav_name_notebook">Notebook</h2>
+              <h2 className="btn-nav_name">Notebook</h2>
             </Link>
           </div>
         </div>
