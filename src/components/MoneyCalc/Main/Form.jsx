@@ -9,31 +9,46 @@ const mapStateToProps = ({ calc }) => {
     list: calc.expensesIncomeList,
   };
 
+  console.log(props);
+
   return props;
 };
 
 const actionCreators = {
-  changeText: actions.changeText,
+  changeDateText: actions.changeDateText,
+  changeMoneyText: actions.changeMoneyText,
   addItem: actions.addItem,
   clearInputFields: actions.clearInputFields,
 };
 
 export class Form extends Component {
   changeDateTextHandler = ({ target }) => {
-    const { changeText } = this.props;
-    changeText(target.value);
+    const { changeDateText } = this.props;
+    changeDateText(target.value);
   }
 
   changeMoneyTextHandler = ({ target }) => {
-    const { changeText } = this.props;
-    if (+target.value) {
-      changeText(+target.value);
-    } else {
-      changeText(null);
+    const { changeMoneyText } = this.props;
+
+    if (target.value === '') {
+      changeMoneyText('');
     }
+
+    if (!+target.value) {
+      return;
+    }
+
+    changeMoneyText(+target.value);
   }
 
-  addItemHandler = () => {
+  formHandler = (event) => {
+    event.preventDefault();
+    console.log('Hi');
+  }
+
+  addItemHandler = (event) => {
+    event.preventDefault();
+
     const { addItem, currentInputData, clearInputFields } = this.props;
     addItem({
       id: uniqueId(),
@@ -60,7 +75,7 @@ export class Form extends Component {
 
     return (
       <div className="form-moneyCalc d-flex justify-content-md-between pt-2">
-        <form>
+        <form onSubmit={this.formHandler}>
           <div className="row justify-content-md-between justify-content-sm-center">
               <div className="col">
                 <input type="text" className="form-control" placeholder="Date" value={currentInputData.dateText} onChange={this.changeDateTextHandler} />
@@ -75,5 +90,5 @@ export class Form extends Component {
     );
   }
 }
-      
+
 export default connect(mapStateToProps, actionCreators)(Form);

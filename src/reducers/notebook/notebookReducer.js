@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux';
 import {
-  NOTE_CHANGE_TEXT,
-  NOTE_CLEAR_INPUT_FIELDS,
-  NOTE_ADD_ITEM,
-  NOTE_REMOVE_ITEM,
-  NOTE_CLEAR_LIST,
-  NOTE_TOGGLE_CHECKBOX,
+  NOTEBOOK_CHANGE_NOTE_TEXT,
+  NOTEBOOK_CLEAR_INPUT_FIELDS,
+  NOTEBOOK_ADD_ITEM,
+  NOTEBOOK_REMOVE_ITEM,
+  NOTEBOOK_CLEAR_LIST,
+  NOTEBOOK_TOGGLE_CHECKBOX,
 } from '../../actions/notebookActions';
 
 
@@ -17,14 +17,14 @@ const defaultStateList = [];
 
 export const currentInputDataReducer = (state = defaultStateCurrentInput, { type, payload }) => {
   switch (type) {
-    case (NOTE_CHANGE_TEXT): {
+    case (NOTEBOOK_CHANGE_NOTE_TEXT): {
       return {
         ...state,
         noteText: payload.text,
       };
     }
 
-    case (NOTE_CLEAR_INPUT_FIELDS): {
+    case (NOTEBOOK_CLEAR_INPUT_FIELDS): {
       return defaultStateCurrentInput;
     }
 
@@ -36,29 +36,32 @@ export const currentInputDataReducer = (state = defaultStateCurrentInput, { type
 
 export const noteListReducer = (state = defaultStateList, { type, payload }) => {
   switch (type) {
-    case (NOTE_ADD_ITEM): {
+    case (NOTEBOOK_ADD_ITEM): {
       return [
         payload.item,
         ...state,
       ];
     }
 
-    case (NOTE_TOGGLE_CHECKBOX): {
-      const currentElementInd = state.findIndex((element) => element.id === payload.id);
-      const newItem = { ...state[currentElementInd], completed: !state[currentElementInd].completed };
+    case (NOTEBOOK_TOGGLE_CHECKBOX): {
+      const currentElementIndex = state.findIndex((element) => element.id === payload.id);
+      const newItem = {
+        ...state[currentElementIndex],
+        completed: !state[currentElementIndex].completed,
+      };
 
       return [
-        ...state.slice(0, currentElementInd),
+        ...state.slice(0, currentElementIndex),
         newItem,
-        ...state.slice(currentElementInd + 1),
+        ...state.slice(currentElementIndex + 1),
       ];
     }
 
-    case (NOTE_REMOVE_ITEM): {
+    case (NOTEBOOK_REMOVE_ITEM): {
       return state.filter((element) => element.id !== payload.id);
     }
 
-    case (NOTE_CLEAR_LIST): {
+    case (NOTEBOOK_CLEAR_LIST): {
       return defaultStateList;
     }
 

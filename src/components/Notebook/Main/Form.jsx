@@ -12,15 +12,15 @@ const mapStateToProps = ({ notebook }) => {
 };
 
 const actionCreators = {
-  changeText: actions.changeText,
+  changeNoteText: actions.changeNoteText,
   addItem: actions.addItem,
   clearInputFields: actions.clearInputFields,
 };
 
 export class Form extends Component {
   changeNoteTextHandler = ({ target }) => {
-    const { changeText } = this.props;
-    changeText(target.value);
+    const { changeNoteText } = this.props;
+    changeNoteText(target.value);
   }
 
   submitHandler = (event) => {
