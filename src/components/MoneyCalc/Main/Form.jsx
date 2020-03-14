@@ -9,8 +9,6 @@ const mapStateToProps = ({ calc }) => {
     list: calc.expensesIncomeList,
   };
 
-  console.log(props);
-
   return props;
 };
 
@@ -38,18 +36,28 @@ export class Form extends Component {
       return;
     }
 
-    changeMoneyText(+target.value);
-  }
+    if (+target.value > 10 ** 5) {
+      return;
+    }
 
-  formHandler = (event) => {
-    event.preventDefault();
-    console.log('Hi');
+    changeMoneyText(+target.value);
   }
 
   addItemHandler = (event) => {
     event.preventDefault();
 
-    const { addItem, currentInputData, clearInputFields } = this.props;
+    const {
+      currentInputData, list, addItem, clearInputFields,
+    } = this.props;
+
+    if (!currentInputData.dateText || !currentInputData.moneyText) {
+      return;
+    }
+
+    if (list.length !== 0) {
+      return;
+    }
+
     addItem({
       id: uniqueId(),
       category: {
@@ -59,6 +67,7 @@ export class Form extends Component {
       date: currentInputData.dateText,
       money: +currentInputData.moneyText,
     });
+
     clearInputFields();
   }
 
@@ -67,26 +76,24 @@ export class Form extends Component {
 
     const renderStartButton = () => (
       (list.length || !(currentInputData.dateText && currentInputData.moneyText)) ? (
-        <button type="button" className="btn btn-add_disabled">Add start value</button>
+        <button type="submit" className="btn btn-add_disabled">Add start value</button>
       ) : (
-        <button type="button" onClick={this.addItemHandler} className="btn btn-add">Add start value</button>
+        <button type="submit" onClick={this.addItemHandler} className="btn btn-add">Add start value</button>
       )
     );
 
     return (
-      <div className="form-moneyCalc d-flex justify-content-md-between pt-2">
-        <form onSubmit={this.formHandler}>
-          <div className="row justify-content-md-between justify-content-sm-center">
-              <div className="col">
-                <input type="text" className="form-control" placeholder="Date" value={currentInputData.dateText} onChange={this.changeDateTextHandler} />
-              </div>
-              <div className="col">
-                <input type="text" className="form-control" placeholder="Money" value={currentInputData.moneyText} onChange={this.changeMoneyTextHandler} />
-              </div>
-          </div>
-        </form>
+      <form className="form-moneyCalc d-flex justify-content-md-between pt-2" onSubmit={this.addItemHandler}>
+        <div className="row justify-content-md-between justify-content-sm-center">
+            <div className="col">
+              <input type="text" className="form-control" placeholder="Date" value={currentInputData.dateText} onChange={this.changeDateTextHandler} />
+            </div>
+            <div className="col">
+              <input type="text" className="form-control" placeholder="Money" value={currentInputData.moneyText} onChange={this.changeMoneyTextHandler} />
+            </div>
+        </div>
         {renderStartButton()}
-      </div>
+      </form>
     );
   }
 }

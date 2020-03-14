@@ -1,24 +1,24 @@
 import * as t from '../../src/actions/calcActions';
-import { currentInputDataReducer } from '../../src/reducers/calcReducer';
+import { currentInputDataReducer } from '../../src/reducers/calc/calcReducer';
 
 
 describe('CurrentInputDataReducer test', () => {
   const initialState = {
-    currentDate: '',
-    currentMoney: '',
+    dateText: '',
+    moneyText: '',
   };
 
   test('Change date text', () => {
     const action = {
       type: t.CALC_CHANGE_DATE_TEXT,
       payload: {
-        date: '25.05.20',
+        text: '25.05.20',
       },
     };
 
     expect(currentInputDataReducer(initialState, action)).toEqual({
       ...initialState,
-      currentDate: action.payload.date,
+      dateText: action.payload.text,
     });
   });
 
@@ -27,13 +27,13 @@ describe('CurrentInputDataReducer test', () => {
     const action = {
       type: t.CALC_CHANGE_MONEY_TEXT,
       payload: {
-        money: '6000',
+        text: '6000',
       },
     };
 
     expect(currentInputDataReducer(initialState, action)).toEqual({
       ...initialState,
-      currentMoney: action.payload.money,
+      moneyText: action.payload.text,
     });
   });
 
@@ -44,13 +44,13 @@ describe('CurrentInputDataReducer test', () => {
     };
 
     const localInitialState = {
-      currentDate: '25.05.20',
-      currentMoney: '6000',
+      dateText: '25.05.20',
+      moneyText: '6000',
     };
 
     expect(currentInputDataReducer(localInitialState, action)).toEqual({
-      currentDate: '',
-      currentMoney: '',
+      dateText: '',
+      moneyText: '',
     });
   });
 });

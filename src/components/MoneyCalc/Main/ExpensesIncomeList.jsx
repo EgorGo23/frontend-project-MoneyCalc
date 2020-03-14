@@ -58,8 +58,7 @@ export class ExpensesIncomeList extends Component {
               <button
                 type="button"
                 className={cn({
-                  btn: true,
-                  'btn-sm': true,
+                  'btn btn-sm': true,
                   [`${(category.categorySign === '+' || category.categoryName === 'Start value') ? 'btn-outline-success' : 'btn-outline-danger'}`]: true,
                 })}
                 onClick={() => this.removeItemHandler(id)}

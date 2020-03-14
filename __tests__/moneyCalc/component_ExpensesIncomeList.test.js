@@ -1,12 +1,10 @@
-/* eslint-disable jest/expect-expect */
 import React from 'react';
 import { shallow } from 'enzyme';
 import { ExpensesIncomeList } from '../../src/components/MoneyCalc/Main/ExpensesIncomeList';
 
-
 describe('ExpensesIncomeList test', () => {
   const props = {
-    currentInputValues: {
+    currentInputData: {
       currentDate: '',
       currentMoney: '',
     },

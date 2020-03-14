@@ -17,7 +17,7 @@ const mapStateToProps = ({ calc }) => {
     currentInputData: calc.currentInputData,
     list: calc.expensesIncomeList,
   };
-  
+
   return props;
 };
 

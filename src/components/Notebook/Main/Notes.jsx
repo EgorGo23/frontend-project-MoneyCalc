@@ -1,8 +1,6 @@
-/* eslint-disable import/prefer-default-export */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { uniqueId } from 'lodash';
-import cn from 'classnames';
 import * as actions from '../../../actions/notebookActions';
 
 const mapStateToProps = ({ notebook }) => {
@@ -43,7 +41,7 @@ export class Notes extends Component {
 
     return (
       <div className="row">
-        <div className="col d-flex align-items-center justify-content-between col_notebook flex-column">
+        <div className="col col_notebook d-flex align-items-center justify-content-between flex-column">
           <ul className="list-group list-group-flush list_notebook w-100">
             {list.map(({ id, note, completed }) => (
               <li

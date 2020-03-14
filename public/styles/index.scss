@@ -22,11 +22,29 @@ $br-radius: 8px;
 }
 
 
-/****Item styles****/ 
+/****Custom Item Styles****/ 
+
+/****Сustom Scrollbar****/
+::-webkit-scrollbar{
+    width:12px;
+}
+
+::-webkit-scrollbar-thumb{
+    border-radius: 5px;
+    background-color: #aaa;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background-color: #777;
+}
+
+::-webkit-scrollbar-track{
+    border-radius: 5px;
+    background-color: #eee;
+}
 
 
-/**Сustom button styles**/
-
+/**Сustom Button**/
 .btn-custom {
     border: 1px solid $blue;
     color: $blue;
@@ -46,13 +64,11 @@ $br-radius: 8px;
 /************/
 /****App****/ 
 /**********/
-
 %App {
     height: 100vh;
     min-width: 378px;
     background-color: #93e1ed;
 }
-
 
 %interfaceWrapper {
     max-width: 800px;
@@ -126,13 +142,16 @@ $br-radius: 8px;
 /********************/
 /****MainContent****/ 
 /******************/
-.MainContent-moneyCalc {
+%MainContent {
     background-color: #fff;
     height: 463px;
     min-width: 200px;
     margin-top: 190px;
     border-radius: $br-radius;
+}
 
+.MainContent-moneyCalc {
+    @extend %MainContent;
 
     @media (max-width: 767.98px) {
         margin-top: 95px;
@@ -145,12 +164,7 @@ $br-radius: 8px;
 }
 
 .MainContent-notebook {
-    background-color: #fff;
-    height: 463px;
-    min-width: 200px;
-    margin-top: 190px;
-    border-radius: $br-radius;
-
+    @extend %MainContent;
 
     @media (max-height: 732px) {
         margin-top: 0;
@@ -169,7 +183,6 @@ $br-radius: 8px;
 /*************/
 /****Form****/ 
 /***********/
-
 %btn-add {
     border: 1px solid $blue;
     background-color: $blue;
@@ -191,7 +204,6 @@ $br-radius: 8px;
     @extend %btn-add;
     opacity: 0.5;
     
-
     &:hover {
         color: #fff;
     }
@@ -208,9 +220,11 @@ $br-radius: 8px;
         justify-content: center;
         align-items: center;
     }
+
     .btn-add {
         margin-top: 10px;
     }
+
     .btn-add_disabled {
         margin-top: 10px;
     }
@@ -218,34 +232,12 @@ $br-radius: 8px;
 
 
 
-/****************Money Calculation****************/
+/****************Money Calculation App****************/
 
 
 /*************************************/
-/****Panel of Expenses and Income****/ 
+/****Expenses and Income List****/ 
 /***********************************/  
-
-/******************/
-/****Scrollbar****/ 
-/****************/
-::-webkit-scrollbar{
-    width:12px;
-}
-
-::-webkit-scrollbar-thumb{
-    border-radius: 5px;
-    background-color: #aaa;
-}
-
-::-webkit-scrollbar-thumb:hover{
-    background-color: #777;
-}
-
-::-webkit-scrollbar-track{
-    border-radius: 5px;
-    background-color: #eee;
-}
-
 .row_content {
     margin-top: 25px;
     height: 380px;
@@ -278,9 +270,11 @@ $br-radius: 8px;
     .App-moneyCalc {
         height: auto;
     }
+
     .row_content {
         height: auto;
     }
+
     .btn-custom {
         margin-top: 20px;
     }
@@ -288,9 +282,8 @@ $br-radius: 8px;
 
 
 /****************************/
-/****Panel of Categories****/ 
+/****Categories list****/ 
 /**************************/
-
 .categoriesList_last-item {
     color: $blue;
 
@@ -305,45 +298,36 @@ $br-radius: 8px;
 
 
 
-/****************Notebook****************/
 
-.form-notebook {
-    
-}
 
+/****************Notebook App****************/
+
+
+/************/
+/***Notes***/
+/**********/
 .col_notebook {
     height: 383px;
+
+    .list_notebook {
+        max-height: 280px;
+        overflow: auto;
+
+        .list-item_data {
+            width: 90%;
+            word-wrap: break-word;
+        } 
+    }
+
+    .list_notebook .btn-custom {
+        margin-top: 0;
+    } 
 }
 
-.list_notebook {
-    max-height: 280px;
-    overflow: auto;
-}
 
-.list-item_data {
-    width: 90%;
-    word-wrap: break-word;
-}
-
-.list_notebook .btn-custom {
-    margin-top: 0;
-} 
-
-// .notebookList-field {
-//     height: 383px;
-
-//     .notebookList-field__list {
-//         max-height: 280px;
-//         overflow: auto;
-
-//         .notebookList-field__list__list-item {
-//             @extend %flex-container;
-//         }
-//     }
-// }
-
-
-
+/***************************************/
+/**** Custom checkbox for note list****/ 
+/*************************************/
 input[type="checkbox"] {
     display: none;
 }
@@ -363,7 +347,6 @@ input[type="checkbox"] + label {
 input[type="checkbox"] + label:last-child {
     margin-bottom: 0;
 }
-
 
 input[type="checkbox"] + label:before {
     content: '';
