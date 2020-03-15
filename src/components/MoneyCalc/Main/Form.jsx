@@ -22,7 +22,10 @@ const actionCreators = {
 export class Form extends Component {
   changeDateTextHandler = ({ target }) => {
     const { changeDateText } = this.props;
-    changeDateText(target.value);
+
+    if (target.value.length <= 8) {
+      changeDateText(target.value);
+    }
   }
 
   changeMoneyTextHandler = ({ target }) => {
@@ -36,7 +39,7 @@ export class Form extends Component {
       return;
     }
 
-    if (+target.value > 10 ** 5) {
+    if (+target.value > 10 ** 6) {
       return;
     }
 

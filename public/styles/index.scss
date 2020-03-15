@@ -232,7 +232,7 @@ $br-radius: 8px;
 
 
 
-/****************Money Calculation App****************/
+/****************Money Calculator App****************/
 
 
 /*************************************/
@@ -253,11 +253,24 @@ $br-radius: 8px;
             width: 45%;
         }
         .data-field_category-date {
-            width: 15%;
+            width: 29%;
+
+            @media (min-width: 505px) and (max-width: 576px) {
+                width: 17%;
+            }
         }
         .data-field_category-money {
             text-align: center;
-            width: 20%;
+            width: 24%;
+        }
+
+        @media (min-width: 576px) and (max-width: 767.98px) {
+            .data-field_category-date {
+                width: 17%;
+            }
+            .data-field_category-money {
+                width: 20%;
+            }
         }
     }
 }

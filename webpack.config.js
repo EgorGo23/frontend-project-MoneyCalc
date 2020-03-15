@@ -48,7 +48,6 @@ module.exports = {
   output: {
     path: path.join(__dirname, '/dist'),
     filename: 'index_bundle.js',
-    publicPath: '/',
   },
   resolve: {
     extensions: ['.js', '.jsx', 'scss'],
@@ -90,7 +89,10 @@ module.exports = {
           },
           {
             loader: 'css-loader',
-          }, 'postcss-loader', 'sass-loader'],
+          },
+          'postcss-loader',
+          'sass-loader',
+        ],
       },
     ],
   },
