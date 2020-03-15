@@ -1,7 +1,7 @@
 # Money Calculator
 [![Build Status](https://travis-ci.org/EgorGo23/frontend-project-MoneyCalc.svg?branch=master)](https://travis-ci.org/EgorGo23/frontend-project-MoneyCalc)
 
-Website - [Money Calculator]https://money-calculator-notebook.firebaseapp.com/
+Website - [Money Calculator](https://money-calculator-notebook.firebaseapp.com/)
 
 This is a simple application that allows you to calculate your money. And in the second part application you can write some notes.
 
