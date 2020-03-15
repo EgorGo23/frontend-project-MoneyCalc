@@ -148,18 +148,42 @@ $br-radius: 8px;
     min-width: 200px;
     margin-top: 190px;
     border-radius: $br-radius;
+
+    
+    
+
+    
 }
 
 .MainContent-moneyCalc {
     @extend %MainContent;
 
-    @media (max-width: 767.98px) {
-        margin-top: 95px;
-        height: auto;
+    @media (max-width: 991.98px) {
+        margin-top: 20px;
     }
     
+    @media (max-width: 767.98px) {
+        margin-top: 20px;
+        height: auto;
+    }
+
     @media (max-width: 575.98px) {
         margin-top: 0;
+    }
+
+    @media (max-width: 812px) and (min-height: 1024px) {
+        height: 463px;
+        margin-top: 190px;
+    }
+
+    @media (max-width: 812px) and (min-height: 1024px) {
+        height: 463px;
+        margin-top: 190px;
+    }
+
+    @media (max-width: 767.98px) and (min-height: 1024px) {
+        height: auto;
+        margin-top: 190px;
     }
 }
 
@@ -255,6 +279,13 @@ $br-radius: 8px;
         .data-field_category-date {
             width: 29%;
 
+            @media (max-width: 575.98px) {
+                width: 21%;
+            }
+
+            @media (min-width: 992px) {
+                width: 22%;
+            }
             @media (min-width: 505px) and (max-width: 576px) {
                 width: 17%;
             }
